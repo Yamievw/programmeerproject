@@ -9,3 +9,6 @@ Zodra een gebruiker zich heeft geregistreerd wordt hij verwezen naar de Login vi
 Onderaan de Find Divers tableviewcontroller is er een knop met een icoon voor my profile. Deze knop navigeert meteen naar de My Profile viewcontroller. De informatie hier wordt ook opgehaald vanuit FirebaseDatabase. Dit zal waarschijnlijk gaan door middel van een ‘current user’ element. Hier vanuit kan de gebruiker uitloggen of met een knop naar de My Chats tableviewcontroller genavigeerd worden. De individuele chats worden opgeslagen in FirebaseDatabase. Ik denk dat bij de My Chats tableviewcontroller deze hele database wordt opgehaald van alle chats met gebruikers. Hier ziet de gebruiker dan de profielfoto en de naam.
 
 Ook vanuit de User Profile viewcontroller is er een knop met Send Message. Er wordt hier dan een nieuwe chat aangemaakt. Dit gebeurt dan ook binnen FirebaseDatabase. Binnen een boomstam met die gebruiker komen er dan takken met elke keer een bericht.
+
+Er zal een klasse "User" gemaakt worden met de elementen:
+Name, profile picture, diving certificate type, years experience, amount of dives en location.
