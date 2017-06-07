@@ -3,6 +3,8 @@ Gemaakt door: Yamie van Wijnbergen
 
 Deze app is bedoeld voor mensen die duiken. De app maakt het mogelijk om duikers met elkaar in contact te brengen. Een gebruiker kan een duiker opzoeken per locatie en vervolgens hem of haar een berichtje sturen via de chatfunctie om op die manier een afspraak te regelen om samen te kunnen duiken.
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/Yamievw/programmeerproject?branch=master)](https://bettercodehub.com/)
+
 ## Project Proposal
 Het doel: De app die ik wil maken is gericht op mensen die duiken. Een belangrijke regel bij het duiken is dat dit altijd samen moet gebeuren; duikers moeten een buddy hebben om samen mee te duiken ter veiligheid. Het doel van deze app is om duikers met elkaar in contact te brengen, zodat ze op die manier een buddy kunnen vinden om mee te duiken. Deze app is een oplossing voor mensen die duiken, die geen andere duikers kennen. Hetzij omdat je bijvoorbeeld de enige in je vriendenkring bent met een duikbrevet, of omdat je op vakantie bent en graag wilt duiken maar niemand kent.
 
