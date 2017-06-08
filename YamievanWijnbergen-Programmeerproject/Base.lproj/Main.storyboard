@@ -41,7 +41,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4qv-8x-AXf" kind="show" identifier="login" id="EOS-dL-OFT"/>
+                                            <segue destination="4qv-8x-AXf" kind="show" identifier="" id="EOS-dL-OFT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgZ-bJ-tHa">
@@ -121,7 +121,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gl3-sY-2gN" id="dB4-hT-vVc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kHD-JX-hYk">
@@ -728,6 +728,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="EOS-dL-OFT"/>
         <segue reference="ofP-QO-WLX"/>
-        <segue reference="ML9-E4-KX3"/>
+        <segue reference="3xr-P4-zQw"/>
     </inferredMetricsTieBreakers>
 </document>

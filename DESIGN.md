@@ -12,3 +12,5 @@ Ook vanuit de User Profile viewcontroller is er een knop met Send Message. Er wo
 
 Er zal een klasse "User" gemaakt worden met de elementen:
 Name, profile picture, diving certificate type, years experience, amount of dives en location.
+
+Een uitgebreidere sketch is te vinden in doc. Hierin is er te zien hoe ik het er denk uit te willen laten zien. En hoe elke knop navigeert naar een volgende viewcontroller.
