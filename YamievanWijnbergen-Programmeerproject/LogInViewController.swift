@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class LogInViewController: UIViewController {
+    
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Keep user logged in when closing app.
+        Auth.auth().addStateDidChangeListener() { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "FindDivers", sender: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +32,29 @@ class LogInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Let a user login with their email and password
+    @IBAction func loginDidTouch(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+            if error == nil {
+                self.loginFail()
+                
+                if Auth.auth().currentUser != nil {
+                    self.performSegue(withIdentifier: "FindDivers", sender: self)
+                }
+            }
+        }
     }
-    */
-
+    
+    // Alert to let user know login failed.
+    func loginFail() {
+        let alertcontroller = UIAlertController(title: "Failed to login.", message: "Please, try again.",preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+        }
+        
+        alertcontroller.addAction(OKAction)
+        self.present(alertcontroller, animated: true, completion:nil)
+        
+        return
+    }
 }

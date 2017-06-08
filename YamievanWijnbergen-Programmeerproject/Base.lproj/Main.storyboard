@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiveBuddy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jv4-GP-CjT">
-                                <rect key="frame" x="121" y="94" width="134" height="37"/>
+                                <rect key="frame" x="121" y="138" width="134" height="37"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nautical_bubbles-512" translatesAutoresizingMaskIntoConstraints="NO" id="ZeH-s6-Ab7">
-                                <rect key="frame" x="244" y="83" width="33" height="28"/>
+                                <rect key="frame" x="244" y="127" width="33" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="1DW-o7-nbe"/>
                                     <constraint firstAttribute="width" constant="33" id="Nws-zS-AfX"/>
@@ -72,6 +72,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lsv-qC-vw0">
+                                <rect key="frame" x="139" y="427" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -100,7 +107,7 @@
         <!--Find Divers-->
         <scene sceneID="s7c-sE-zHn">
             <objects>
-                <viewController title="Find Divers" id="6qV-CQ-DkQ" sceneMemberID="viewController">
+                <viewController title="Find Divers" id="6qV-CQ-DkQ" customClass="FindDiversViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="39T-lz-JLa"/>
                         <viewControllerLayoutGuide type="bottom" id="fB8-h4-d6a"/>
@@ -214,7 +221,7 @@
         <!--My Profile-->
         <scene sceneID="f2d-oc-L09">
             <objects>
-                <viewController title="My Profile" id="t8e-Na-vEO" sceneMemberID="viewController">
+                <viewController title="My Profile" id="t8e-Na-vEO" customClass="MyProfileViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ggD-c2-jIH"/>
                         <viewControllerLayoutGuide type="bottom" id="wTK-Xa-g4D"/>
@@ -323,7 +330,7 @@
         <!--My Chats-->
         <scene sceneID="PVv-pU-J27">
             <objects>
-                <viewController title="My Chats" id="qde-kc-X3U" sceneMemberID="viewController">
+                <viewController title="My Chats" id="qde-kc-X3U" customClass="MyChatsTableViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="43B-aH-9hE"/>
                         <viewControllerLayoutGuide type="bottom" id="lPu-XX-7Sa"/>
@@ -340,7 +347,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="63I-VX-KKl" id="CAJ-7v-iYd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4YI-je-NWm">
@@ -436,7 +443,7 @@
         <!--User Profile-->
         <scene sceneID="vhu-kF-vWw">
             <objects>
-                <viewController title="User Profile" id="5zE-38-qvE" sceneMemberID="viewController">
+                <viewController title="User Profile" id="5zE-38-qvE" customClass="UserProfileViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sur-pU-cKJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Zmr-eJ-xtI"/>
@@ -524,7 +531,7 @@
         <!--Log In-->
         <scene sceneID="Hkv-Cs-c4m">
             <objects>
-                <viewController title="Log In" id="4qv-8x-AXf" sceneMemberID="viewController">
+                <viewController title="Log In" id="4qv-8x-AXf" customClass="LogInViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WM2-Q7-ckT"/>
                         <viewControllerLayoutGuide type="bottom" id="xla-Pl-OFb"/>
@@ -542,7 +549,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-8z-jFL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-8z-jFL">
                                 <rect key="frame" x="52" y="234" width="271" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -557,7 +564,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6qV-CQ-DkQ" kind="show" id="3xr-P4-zQw"/>
+                                    <action selector="loginDidTouch:" destination="4qv-8x-AXf" eventType="touchUpInside" id="Xsz-eM-FA3"/>
+                                    <segue destination="6qV-CQ-DkQ" kind="show" identifier="FindDivers" id="Jbb-PM-8JG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -581,6 +589,10 @@
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailField" destination="gR1-8z-jFL" id="Uc1-zY-L2M"/>
+                        <outlet property="passwordField" destination="P94-7L-cXG" id="zzj-mu-XcZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMj-ba-49V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -589,7 +601,7 @@
         <!--Register-->
         <scene sceneID="cHO-Y1-sBD">
             <objects>
-                <viewController title="Register" id="ogw-Fz-RUU" sceneMemberID="viewController">
+                <viewController title="Register" id="ogw-Fz-RUU" customClass="RegisterViewController" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mJF-1r-XHZ"/>
                         <viewControllerLayoutGuide type="bottom" id="2I9-4I-IsX"/>
@@ -640,12 +652,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password confirmation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XfS-Ru-BOr">
-                                <rect key="frame" x="52" y="434" width="271" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2x-7L-6i9">
                                 <rect key="frame" x="158" y="492" width="59" height="46"/>
                                 <constraints>
@@ -656,7 +662,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4qv-8x-AXf" kind="show" id="3rR-YZ-PNu"/>
+                                    <action selector="registerDidTouch:" destination="ogw-Fz-RUU" eventType="touchUpInside" id="Vz9-N9-QCP"/>
+                                    <segue destination="4qv-8x-AXf" kind="show" id="vUe-8g-1Ii"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -665,6 +672,7 @@
                             <constraint firstItem="aes-VH-sLN" firstAttribute="leading" secondItem="QEq-FX-Wcc" secondAttribute="leading" id="2Z1-bZ-avv"/>
                             <constraint firstItem="Gnx-kC-7hT" firstAttribute="centerX" secondItem="bLW-Vz-qd4" secondAttribute="centerX" id="7Ll-TJ-zz8"/>
                             <constraint firstItem="ofK-uU-DBb" firstAttribute="leading" secondItem="Dt6-iB-E42" secondAttribute="leading" id="87D-yj-nZF"/>
+                            <constraint firstItem="C2x-7L-6i9" firstAttribute="centerX" secondItem="pLz-SH-KTt" secondAttribute="centerX" id="ETg-de-8gC"/>
                             <constraint firstItem="aes-VH-sLN" firstAttribute="trailing" secondItem="QEq-FX-Wcc" secondAttribute="trailing" id="G9e-Pj-HGH"/>
                             <constraint firstAttribute="trailing" secondItem="bLW-Vz-qd4" secondAttribute="trailing" id="JO7-bm-iiL"/>
                             <constraint firstItem="Dt6-iB-E42" firstAttribute="top" secondItem="ofK-uU-DBb" secondAttribute="bottom" constant="70" id="K2v-mz-iGd"/>
@@ -674,24 +682,28 @@
                             <constraint firstItem="Gnx-kC-7hT" firstAttribute="trailing" secondItem="aes-VH-sLN" secondAttribute="trailing" id="SRG-an-1fg"/>
                             <constraint firstItem="2I9-4I-IsX" firstAttribute="top" secondItem="bLW-Vz-qd4" secondAttribute="bottom" id="Xgn-3d-gTg"/>
                             <constraint firstItem="ofK-uU-DBb" firstAttribute="trailing" secondItem="Dt6-iB-E42" secondAttribute="trailing" id="aNC-XU-C4q"/>
-                            <constraint firstItem="C2x-7L-6i9" firstAttribute="centerX" secondItem="XfS-Ru-BOr" secondAttribute="centerX" id="bcb-05-ltA"/>
                             <constraint firstItem="Dt6-iB-E42" firstAttribute="trailing" secondItem="pLz-SH-KTt" secondAttribute="trailing" id="fXg-Md-nHP"/>
                             <constraint firstItem="bLW-Vz-qd4" firstAttribute="top" secondItem="mJF-1r-XHZ" secondAttribute="bottom" id="ftb-xJ-YYn"/>
                             <constraint firstItem="bLW-Vz-qd4" firstAttribute="leading" secondItem="K57-St-rTn" secondAttribute="leading" id="g8e-du-qz2"/>
-                            <constraint firstItem="pLz-SH-KTt" firstAttribute="trailing" secondItem="XfS-Ru-BOr" secondAttribute="trailing" id="hfP-sT-Wei"/>
-                            <constraint firstItem="pLz-SH-KTt" firstAttribute="leading" secondItem="XfS-Ru-BOr" secondAttribute="leading" id="ifh-0C-fcH"/>
                             <constraint firstItem="QEq-FX-Wcc" firstAttribute="leading" secondItem="ofK-uU-DBb" secondAttribute="leading" id="jKb-ed-KQR"/>
                             <constraint firstItem="pLz-SH-KTt" firstAttribute="top" secondItem="Dt6-iB-E42" secondAttribute="bottom" constant="8" symbolic="YES" id="kzs-cL-BTF"/>
                             <constraint firstItem="Gnx-kC-7hT" firstAttribute="leading" secondItem="aes-VH-sLN" secondAttribute="leading" id="mKd-aF-gxi"/>
+                            <constraint firstItem="C2x-7L-6i9" firstAttribute="top" secondItem="pLz-SH-KTt" secondAttribute="bottom" constant="66" id="ond-rG-0BE"/>
                             <constraint firstItem="Gnx-kC-7hT" firstAttribute="top" secondItem="mJF-1r-XHZ" secondAttribute="bottom" constant="80" id="pYa-TC-3Y2"/>
                             <constraint firstItem="ofK-uU-DBb" firstAttribute="top" secondItem="QEq-FX-Wcc" secondAttribute="bottom" constant="8" symbolic="YES" id="q6b-s6-za9"/>
-                            <constraint firstItem="XfS-Ru-BOr" firstAttribute="top" secondItem="pLz-SH-KTt" secondAttribute="bottom" constant="8" symbolic="YES" id="wD3-JQ-lWB"/>
                             <constraint firstItem="Gnx-kC-7hT" firstAttribute="leading" secondItem="K57-St-rTn" secondAttribute="leadingMargin" constant="36" id="xsw-1Z-ApG"/>
                             <constraint firstItem="Dt6-iB-E42" firstAttribute="leading" secondItem="pLz-SH-KTt" secondAttribute="leading" id="xus-Qi-5MR"/>
-                            <constraint firstItem="C2x-7L-6i9" firstAttribute="top" secondItem="XfS-Ru-BOr" secondAttribute="bottom" constant="28" id="zb5-L9-4QO"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="amountdivesField" destination="ofK-uU-DBb" id="OvE-mB-cuo"/>
+                        <outlet property="certificateField" destination="aes-VH-sLN" id="XOT-c5-dcq"/>
+                        <outlet property="emailField" destination="Dt6-iB-E42" id="KAh-9q-eX7"/>
+                        <outlet property="experienceField" destination="QEq-FX-Wcc" id="ZX0-QQ-f2L"/>
+                        <outlet property="nameField" destination="Gnx-kC-7hT" id="gY2-fI-MtV"/>
+                        <outlet property="passwordField" destination="pLz-SH-KTt" id="2KN-7q-m4k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFQ-gZ-Mil" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -726,8 +738,8 @@
         <image name="self_rescue_scuba_diving_dive_hacks_scd0417" width="596" height="859"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Jbb-PM-8JG"/>
         <segue reference="EOS-dL-OFT"/>
         <segue reference="ofP-QO-WLX"/>
-        <segue reference="3xr-P4-zQw"/>
     </inferredMetricsTieBreakers>
 </document>
