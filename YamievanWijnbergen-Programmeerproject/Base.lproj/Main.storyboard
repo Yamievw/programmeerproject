@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiveBuddy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jv4-GP-CjT">
-                                <rect key="frame" x="121" y="138" width="134" height="37"/>
+                                <rect key="frame" x="121" y="94" width="134" height="37"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nautical_bubbles-512" translatesAutoresizingMaskIntoConstraints="NO" id="ZeH-s6-Ab7">
-                                <rect key="frame" x="244" y="127" width="33" height="28"/>
+                                <rect key="frame" x="244" y="83" width="33" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="1DW-o7-nbe"/>
                                     <constraint firstAttribute="width" constant="33" id="Nws-zS-AfX"/>
@@ -291,7 +291,8 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="xWD-sg-5u7" id="Y0k-sb-hJv">
+                                    <action selector="logoutDidTouch:" destination="t8e-Na-vEO" eventType="touchUpInside" id="1EC-wE-Hdc"/>
+                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" identifier="logout" popoverAnchorView="xWD-sg-5u7" id="Y0k-sb-hJv">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>

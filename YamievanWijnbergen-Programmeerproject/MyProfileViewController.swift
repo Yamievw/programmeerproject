@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MyProfileViewController: UIViewController {
 
@@ -22,14 +23,25 @@ class MyProfileViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutDidTouch(_ sender: Any) {
+        let alertController = UIAlertController(title: "Logout", message: " Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let logoutAction = UIAlertAction(title: "Yes",style: .default) { action in
+            
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+            self.performSegue(withIdentifier: "logout", sender: nil)
+            
+        }
+        let cancelAction = UIAlertAction(title: "Nope!", style: .default)
+        
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
-    */
-
 }
