@@ -566,7 +566,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginDidTouch:" destination="4qv-8x-AXf" eventType="touchUpInside" id="Xsz-eM-FA3"/>
-                                    <segue destination="6qV-CQ-DkQ" kind="show" identifier="FindDivers" id="Jbb-PM-8JG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -593,6 +592,7 @@
                     <connections>
                         <outlet property="emailField" destination="gR1-8z-jFL" id="Uc1-zY-L2M"/>
                         <outlet property="passwordField" destination="P94-7L-cXG" id="zzj-mu-XcZ"/>
+                        <segue destination="6qV-CQ-DkQ" kind="show" identifier="LoginToFindDivers" id="iqK-4a-U1M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMj-ba-49V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -664,7 +664,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerDidTouch:" destination="ogw-Fz-RUU" eventType="touchUpInside" id="Vz9-N9-QCP"/>
-                                    <segue destination="4qv-8x-AXf" kind="show" id="vUe-8g-1Ii"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -704,6 +703,7 @@
                         <outlet property="experienceField" destination="QEq-FX-Wcc" id="ZX0-QQ-f2L"/>
                         <outlet property="nameField" destination="Gnx-kC-7hT" id="gY2-fI-MtV"/>
                         <outlet property="passwordField" destination="pLz-SH-KTt" id="2KN-7q-m4k"/>
+                        <segue destination="6qV-CQ-DkQ" kind="show" identifier="RegisterToFindDivers" id="ecX-8g-ihC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFQ-gZ-Mil" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -739,8 +739,7 @@
         <image name="self_rescue_scuba_diving_dive_hacks_scd0417" width="596" height="859"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jbb-PM-8JG"/>
-        <segue reference="EOS-dL-OFT"/>
+        <segue reference="iqK-4a-U1M"/>
         <segue reference="ofP-QO-WLX"/>
     </inferredMetricsTieBreakers>
 </document>

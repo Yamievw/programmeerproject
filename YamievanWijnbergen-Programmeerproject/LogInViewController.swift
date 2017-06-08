@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
         // Keep user logged in when closing app.
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
-                self.performSegue(withIdentifier: "FindDivers", sender: nil)
+                self.performSegue(withIdentifier: "LoginToFindDivers", sender: nil)
             }
         }
     }
@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
                 self.loginFail()
                 
                 if Auth.auth().currentUser != nil {
-                    self.performSegue(withIdentifier: "FindDivers", sender: self)
+                    self.performSegue(withIdentifier: "LoginToFindDivers", sender: self)
                 }
             }
         }
