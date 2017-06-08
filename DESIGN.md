@@ -10,7 +10,8 @@ Onderaan de Find Divers tableviewcontroller is er een knop met een icoon voor my
 
 Ook vanuit de User Profile viewcontroller is er een knop met Send Message. Er wordt hier dan een nieuwe chat aangemaakt. Dit gebeurt dan ook binnen FirebaseDatabase. Binnen een boomstam met die gebruiker komen er dan takken met elke keer een bericht.
 
-Er zal een klasse "User" gemaakt worden met de elementen:
+Er zal een klasse "UserInfo" gemaakt worden met de elementen:
 Name, profile picture, diving certificate type, years experience, amount of dives en location.
+Daarnaast zal er ook nog een klasse zijn waarin alle gebruikers in voorkomen.
 
 Een uitgebreidere sketch is te vinden in doc. Hierin is er te zien hoe ik denk het er uiteindelijk uit te willen laten zien. En hoe elke knop navigeert naar een volgende viewcontroller.

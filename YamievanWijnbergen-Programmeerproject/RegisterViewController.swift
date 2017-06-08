@@ -23,7 +23,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     
     let ref = Database.database().reference(withPath: "UserInfo")
-    let ref2 = Database.database().reference(withPath: "AllUsers")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,7 @@ class RegisterViewController: UIViewController {
                 Auth.auth().signIn(withEmail: self.emailField.text!,password: self.passwordField.text!)
                 
                 if Auth.auth().currentUser != nil {
-                    self.performSegue(withIdentifier: "RegisterToFindDivers", sender: self)
+                    self.performSegue(withIdentifier: "LoginToFindDivers", sender: self)
                 }
 
             }
