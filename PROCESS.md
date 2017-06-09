@@ -9,3 +9,6 @@ Vandaag ben ik tot de conclusie gekomen dat ik vooral heel veel met FirebaseData
 
 ## 8 juni
 Vandaag heb ik Firebase pods geinstalleerd en de Login, Register en Logout functies gemaakt.
+
+## 9 juni
+Ik heb de structuur binnen Firebase werkend gemaakt, zodat elke user ID onder elkaar komt te staan, met binnen elke userID hun eigen informatie.
