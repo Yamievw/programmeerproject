@@ -14,4 +14,6 @@ Er zal een klasse "UserInfo" gemaakt worden met de elementen:
 Name, profile picture, diving certificate type, years experience, amount of dives en location.
 Daarnaast zal er ook nog een klasse zijn waarin alle gebruikers in voorkomen.
 
-Een uitgebreidere sketch is te vinden in doc. Hierin is er te zien hoe ik denk het er uiteindelijk uit te willen laten zien. En hoe elke knop navigeert naar een volgende viewcontroller.
+Een uitgebreidere sketch is onderaan te vinden. Hierin is er te zien hoe ik denk het er uiteindelijk uit te willen laten zien. En hoe elke knop navigeert naar een volgende viewcontroller.
+## Sketch
+![screenshot](screenshot2.png "Screenshot")
