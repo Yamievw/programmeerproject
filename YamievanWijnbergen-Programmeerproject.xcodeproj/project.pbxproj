@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C4ED50E1EEAFCAA00C803FA /* proposalsketch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */; };
 		6C7DA3671EE6E2E800CB590B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DA3661EE6E2E800CB590B /* README.md */; };
 		6C7DA3691EE8192700CB590B /* DESIGN.md in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DA3681EE8192700CB590B /* DESIGN.md */; };
 		6C7DA36B1EE81C1800CB590B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DA36A1EE81C1800CB590B /* LogInViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		4FE80ED874EFA3BD37F58541 /* Pods_YamievanWijnbergen_Programmeerproject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YamievanWijnbergen_Programmeerproject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		630999726415804583945ED7 /* Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YamievanWijnbergen-Programmeerproject/Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig"; sourceTree = "<group>"; };
+		6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = proposalsketch.jpg; sourceTree = "<group>"; };
 		6C7DA3661EE6E2E800CB590B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		6C7DA3681EE8192700CB590B /* DESIGN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = DESIGN.md; sourceTree = "<group>"; };
 		6C7DA36A1EE81C1800CB590B /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				6C7DA37A1EE831D400CB590B /* PROCESS.md */,
 				6C7DA3681EE8192700CB590B /* DESIGN.md */,
 				6C7DA3661EE6E2E800CB590B /* README.md */,
+				6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */,
 				6CFA364D1EEA847D0026F827 /* screenshot2.png */,
 				6CE2D09D1EE47B3600583B5C /* YamievanWijnbergen-Programmeerproject */,
 				6CE2D09C1EE47B3600583B5C /* Products */,
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE2D0A91EE47B3600583B5C /* LaunchScreen.storyboard in Resources */,
+				6C4ED50E1EEAFCAA00C803FA /* proposalsketch.jpg in Resources */,
 				6C7DA37D1EE948A700CB590B /* GoogleService-Info.plist in Resources */,
 				6CE2D0A61EE47B3600583B5C /* Assets.xcassets in Resources */,
 				6CFA364E1EEA847D0026F827 /* screenshot2.png in Resources */,
