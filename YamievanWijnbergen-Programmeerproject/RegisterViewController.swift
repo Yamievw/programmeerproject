@@ -36,6 +36,7 @@ class RegisterViewController: UIViewController {
     }
     
     
+    // Register a new user to Firebase database
     @IBAction func registerDidTouch(_ sender: Any) {
 
         Auth.auth().createUser(withEmail: emailField.text!,password: passwordField.text!) { user, error in
@@ -44,12 +45,22 @@ class RegisterViewController: UIViewController {
                 Auth.auth().signIn(withEmail: self.emailField.text!,password: self.passwordField.text!)
                 
                 if Auth.auth().currentUser != nil {
-                    self.performSegue(withIdentifier: "LoginToFindDivers", sender: self)
+                    self.performSegue(withIdentifier: "RegisterToFindDivers", sender: self)
                 }
 
             }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            // Store user info to Firebase database
+            let ref = Database.database().reference(fromURL: "https://programmeerproject-820ae.firebaseio.com/")
+            let userReference = ref.child("Userinfo").child(uid)
+            
             let values = ["name": self.nameField.text, "email": self.emailField.text, "certificate": self.certificateField.text, "experience": self.experienceField.text, "dives": self.amountdivesField.text]
-            self.ref.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            
+            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     print("Error")
                     return
@@ -59,16 +70,4 @@ class RegisterViewController: UIViewController {
             
         }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
