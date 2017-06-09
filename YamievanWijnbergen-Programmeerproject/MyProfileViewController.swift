@@ -8,8 +8,10 @@
 
 import UIKit
 import FirebaseAuth
+import CoreLocation
 
-class MyProfileViewController: UIViewController {
+class MyProfileViewController: UIViewController{
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

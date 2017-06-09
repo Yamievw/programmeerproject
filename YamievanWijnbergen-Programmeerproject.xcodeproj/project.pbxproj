@@ -22,6 +22,7 @@
 		6CFA364A1EE96C8F0026F827 /* FindDiversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA36491EE96C8F0026F827 /* FindDiversViewController.swift */; };
 		6CFA364C1EE971540026F827 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA364B1EE971540026F827 /* HomeViewController.swift */; };
 		6CFA364E1EEA847D0026F827 /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFA364D1EEA847D0026F827 /* screenshot2.png */; };
+		6CFA36531EEAE7F90026F827 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFA36521EEAE7F90026F827 /* CoreLocation.framework */; };
 		DCE246C0B002538B07CBE6E4 /* Pods_YamievanWijnbergen_Programmeerproject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE80ED874EFA3BD37F58541 /* Pods_YamievanWijnbergen_Programmeerproject.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		6CFA36491EE96C8F0026F827 /* FindDiversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDiversViewController.swift; sourceTree = "<group>"; };
 		6CFA364B1EE971540026F827 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6CFA364D1EEA847D0026F827 /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		6CFA36521EEAE7F90026F827 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FCFE8A0E8F731F38A1675798 /* Pods-YamievanWijnbergen-Programmeerproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YamievanWijnbergen-Programmeerproject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YamievanWijnbergen-Programmeerproject/Pods-YamievanWijnbergen-Programmeerproject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CFA36531EEAE7F90026F827 /* CoreLocation.framework in Frameworks */,
 				DCE246C0B002538B07CBE6E4 /* Pods_YamievanWijnbergen_Programmeerproject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +117,7 @@
 		AD165283DC2C7FF5D35C6FF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CFA36521EEAE7F90026F827 /* CoreLocation.framework */,
 				4FE80ED874EFA3BD37F58541 /* Pods_YamievanWijnbergen_Programmeerproject.framework */,
 			);
 			name = Frameworks;

@@ -10,10 +10,13 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Firebase
+import CoreLocation
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, CLLocationManagerDelegate {
     
-    
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation!
+
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var certificateField: UITextField!
     @IBOutlet weak var experienceField: UITextField!
@@ -26,17 +29,41 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.stopMonitoringSignificantLocationChanges()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        locationAuthStatus()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    // Register a new user to Firebase database
+    // get location authorization status
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager.location
+            print(currentLocation.coordinate.latitude)
+            print(currentLocation.coordinate.longitude)
+        }
+        else {
+            locationManager.requestWhenInUseAuthorization()
+            locationAuthStatus()
+        }
+    }
+
+    // Register a new user to Firebase database with his data
     @IBAction func registerDidTouch(_ sender: Any) {
 
         Auth.auth().createUser(withEmail: emailField.text!,password: passwordField.text!) { user, error in
@@ -54,11 +81,14 @@ class RegisterViewController: UIViewController {
                 return
             }
             
+            let lat: Double = (self.locationManager.location?.coordinate.latitude)!
+            let lon: Double = (self.locationManager.location?.coordinate.longitude)!
+            
             // Store user info to Firebase database
             let ref = Database.database().reference(fromURL: "https://programmeerproject-820ae.firebaseio.com/")
             let userReference = ref.child("Userinfo").child(uid)
             
-            let values = ["name": self.nameField.text, "email": self.emailField.text, "certificate": self.certificateField.text, "experience": self.experienceField.text, "dives": self.amountdivesField.text]
+            let values = ["name": self.nameField.text, "email": self.emailField.text, "certificate": self.certificateField.text, "experience": self.experienceField.text, "dives": self.amountdivesField.text, "latitude": lat, "longitude": lon] as [String : Any]
             
             userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {
