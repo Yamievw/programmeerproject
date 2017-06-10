@@ -100,29 +100,49 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
             let lat: Double = (self.locationManager.location?.coordinate.latitude)!
             let lon: Double = (self.locationManager.location?.coordinate.longitude)!
             
-            // Store user info to Firebase database.
-            let ref = Database.database().reference(fromURL: "https://programmeerproject-820ae.firebaseio.com/")
-            let userReference = ref.child("Userinfo").child(uid)
+            // Store user info to Firebase database and storage.
+            let imageName = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("\(imageName).png")
             
-            let values = ["name": self.nameField.text, "email": self.emailField.text, "certificate": self.certificateField.text, "experience": self.experienceField.text, "dives": self.amountdivesField.text, "latitude": lat, "longitude": lon] as [String : Any]
+            if let uploadData = UIImagePNGRepresentation(self.userImagePicker.image!) {
+                
+                storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
+                    
+                        let values = ["name": self.nameField.text, "email": self.emailField.text, "certificate": self.certificateField.text, "experience": self.experienceField.text, "dives": self.amountdivesField.text, "latitude": lat, "longitude": lon, "profileImageUrl": profileImageUrl] as [String : AnyObject]
+                        
+                        self.registerUserIntoDatabase(uid: uid, values: values)
+                    }
+                })
             
-            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print("Error")
-                    return
-                }
-                print("User is succesfully saved to Firebase database")
-            })
-            
+            }
         }
     }
     
-    // Select image.
+    // Setup Firebase Database.
+    private func registerUserIntoDatabase(uid: String, values: [String: AnyObject]){
+        let ref = Database.database().reference(fromURL: "https://programmeerproject-820ae.firebaseio.com/")
+        let userReference = ref.child("Userinfo").child(uid)
+        
+        userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                print("Error")
+                return
+            }
+            print("User is succesfully saved to Firebase database")
+        })
+    }
+
+    // Select imageView.
     @IBAction func selectedImagePicker(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    // Choose an image.
+    // Choose an image from Photos.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             userImagePicker.image = image
@@ -133,30 +153,4 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
-    
-//    // Upload an image.
-//    func uploadImage() {
-//        guard let img = userImagePicker.image, imageSelected == true else {
-//            print("Image must be selected")
-//            return
-//        }
-//        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
-//            let imgUid = NSUUID().uuidString
-//            let metadata = StorageMetadata()
-//            metadata.contentType = "img/jpeg"
-//            
-//            Storage.storage().reference().child(imgUid).putData(imgData, metadata: metadata) { (metadata, error) in
-//                if error != nil {
-//                    print("Did not upload image")
-//                }
-//                else {
-//                    print("Uploaded image succesfully")
-//                    let downloadURL = metadata?.downloadURL()?.absoluteString
-//                    if let url = downloadURL {
-//                        self.registerDidTouch(img: url)
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
