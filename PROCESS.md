@@ -12,3 +12,6 @@ Vandaag heb ik Firebase pods geinstalleerd en de Login, Register en Logout funct
 
 ## 9 juni
 Ik heb de structuur binnen Firebase werkend gemaakt, zodat elke user ID onder elkaar komt te staan, met binnen elke userID hun eigen informatie.
+
+## 10 juni
+Na heel veel tutorials, is het vandaag gelukt om een profiel foto vanuit Photos te selecteren en deze op te slaan in Firebase.
