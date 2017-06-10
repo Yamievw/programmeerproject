@@ -10,11 +10,21 @@ import UIKit
 import FirebaseAuth
 import CoreLocation
 
-class MyProfileViewController: UIViewController{
+class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    @IBOutlet weak var userImagePicker: UIImageView!
+    
+    var imagePicker: UIImagePickerController!
+    var imageSelected = false
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
 
         // Do any additional setup after loading the view.
     }
@@ -24,7 +34,18 @@ class MyProfileViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            userImagePicker.image = image
+            imageSelected = true
+        }
+        else {
+            print("Image wasn't selected")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    // function to log user out.
     @IBAction func logoutDidTouch(_ sender: Any) {
         let alertController = UIAlertController(title: "Logout", message: " Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.alert)
         
