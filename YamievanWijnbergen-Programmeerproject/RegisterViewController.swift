@@ -96,7 +96,6 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
             guard let uid = user?.uid else {
                 return
             }
-            
             let lat: Double = (self.locationManager.location?.coordinate.latitude)!
             let lon: Double = (self.locationManager.location?.coordinate.longitude)!
             

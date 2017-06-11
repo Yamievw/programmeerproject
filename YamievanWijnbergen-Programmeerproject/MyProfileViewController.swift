@@ -8,23 +8,21 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import CoreLocation
 
-class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class MyProfileViewController: UIViewController {
     
-    @IBOutlet weak var userImagePicker: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var myName: UILabel!
+    @IBOutlet weak var myCertificate: UILabel!
+    @IBOutlet weak var myExperience: UILabel!
+    @IBOutlet weak var myDives: UILabel!
     
-    var imagePicker: UIImagePickerController!
-    var imageSelected = false
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        getUserDetails()
 
         // Do any additional setup after loading the view.
     }
@@ -34,18 +32,28 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            userImagePicker.image = image
-            imageSelected = true
+    // Function to get details of current user displayed on profile.
+    func getUserDetails() {
+        if Auth.auth().currentUser?.uid == nil {
+            perform(#selector(logoutDidTouch), with: nil, afterDelay: 0)
+        } else {
+            let uid = Auth.auth().currentUser?.uid
+            Database.database().reference().child("Userinfo").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: Any] {
+                    self.myName.text = dictionary["name"] as? String
+                    self.myExperience.text = dictionary["experience"] as? String
+                    self.myCertificate.text = dictionary["certificate"] as? String
+                    self.myDives.text = dictionary["dives"] as? String
+                    
+                    
+                    self.profileImage.image = dictionary["profileImageUrl"] as? UIImage
+                }
+            })
         }
-        else {
-            print("Image wasn't selected")
-        }
-        imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    // function to log user out.
+    // Function to log user out.
     @IBAction func logoutDidTouch(_ sender: Any) {
         let alertController = UIAlertController(title: "Logout", message: " Are you sure you want to logout?", preferredStyle: UIAlertControllerStyle.alert)
         
