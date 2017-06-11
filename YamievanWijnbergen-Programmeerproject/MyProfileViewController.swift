@@ -46,8 +46,19 @@ class MyProfileViewController: UIViewController {
                     self.myCertificate.text = dictionary["certificate"] as? String
                     self.myDives.text = dictionary["dives"] as? String
                     
-                    
-                    self.profileImage.image = dictionary["profileImageUrl"] as? UIImage
+                    // Get user profile picture from URL
+                    if let profileImageURL = dictionary["profileImageUrl"] as? String {
+                        let url = URL(string: profileImageURL)
+                        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                            if error != nil {
+                                print(error)
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                self.profileImage.image = UIImage(data: data!)
+                            }
+                        }).resume()
+                    }
                 }
             })
         }
