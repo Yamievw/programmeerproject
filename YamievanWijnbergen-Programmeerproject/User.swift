@@ -19,5 +19,8 @@ class User: NSObject {
     init(dictionary: [String: Any]) {
         self.name = dictionary["name"] as? String ?? ""
         self.certificate = dictionary["certificate"] as? String ?? ""
+        self.experience = dictionary["experience"] as? String ?? ""
+        self.dives = dictionary["dives"] as? String ?? ""
+        self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
     }
 }

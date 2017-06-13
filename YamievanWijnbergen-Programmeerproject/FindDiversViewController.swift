@@ -62,7 +62,7 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.diversCertificate.text = user.certificate
         
         return cell
-        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         diver = divers[indexPath.row]
@@ -75,7 +75,6 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
             viewController.diver = self.diver
         }
     }
-
 }
 
 // Function to create image from url.
