@@ -90,7 +90,6 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
                 if Auth.auth().currentUser != nil {
                     self.performSegue(withIdentifier: "RegisterToFindDivers", sender: self)
                 }
-
             }
  
             guard let uid = user?.uid else {
@@ -117,7 +116,6 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
                         self.registerUserIntoDatabase(uid: uid, values: values)
                     }
                 })
-            
             }
         }
     }
