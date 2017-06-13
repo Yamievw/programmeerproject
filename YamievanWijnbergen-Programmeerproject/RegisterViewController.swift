@@ -107,12 +107,12 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
-                        print(error)
+                        print(error!)
                         return
                     }
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
                     
-                        let values = ["name": self.nameField.text, "email": self.emailField.text, "certificate": self.certificateField.text, "experience": self.experienceField.text, "dives": self.amountdivesField.text, "latitude": lat, "longitude": lon, "profileImageUrl": profileImageUrl] as [String : AnyObject]
+                        let values = ["name": self.nameField.text!, "email": self.emailField.text!, "certificate": self.certificateField.text!, "experience": self.experienceField.text!, "dives": self.amountdivesField.text!, "latitude": lat, "longitude": lon, "profileImageUrl": profileImageUrl] as [String : AnyObject]
                         
                         self.registerUserIntoDatabase(uid: uid, values: values)
                     }

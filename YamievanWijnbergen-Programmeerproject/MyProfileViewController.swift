@@ -22,9 +22,8 @@ class MyProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         getUserDetails()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +50,7 @@ class MyProfileViewController: UIViewController {
                         let url = URL(string: profileImageURL)
                         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                             if error != nil {
-                                print(error)
+                                print(error!)
                                 return
                             }
                             DispatchQueue.main.async {

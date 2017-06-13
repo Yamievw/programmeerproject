@@ -9,10 +9,15 @@
 import UIKit
 
 class User: NSObject {
+    var id: String?
     var name: String?
-    var email: String?
     var profileImageUrl: String?
     var experience: String?
     var dives: String?
     var certificate: String?
+    
+    init(dictionary: [String: Any]) {
+        self.name = dictionary["name"] as? String ?? ""
+        self.certificate = dictionary["certificate"] as? String ?? ""
+    }
 }
