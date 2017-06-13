@@ -15,3 +15,12 @@ Ik heb de structuur binnen Firebase werkend gemaakt, zodat elke user ID onder el
 
 ## 10 juni
 Na heel veel tutorials, is het vandaag gelukt om een profiel foto vanuit Photos te selecteren en deze op te slaan in Firebase.
+
+## 11 juni
+Vandaag is het gelukt om informatie op te halen vanuit Firebase en deze weer te geven op het profiel van de huidige gebruiker. Ook zit ik te kijken hoe ik zoekresultaten kan ordenenen gebasseerd op locatie.
+
+## 12 juni
+Ik had vandaag niet heel veel tijd. Ik ben begonnen met het ophalen van alle gebruikers in FindDivers (niet gebaseerd op locatie). Dit is niet helemaal gelukt.
+
+## 13 juni
+Het is vandaag wel gelukt met het ophalen van alle gebruikers. Ook is het gelukt om de UserProfile werkend te krijgen met alle persoonlijke info per profiel te zien.
