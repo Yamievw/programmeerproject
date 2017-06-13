@@ -15,6 +15,7 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var divers = [User]()
+    var diver: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    // Get all users in the results (not location based).
+    
     func getUsers() {
         Database.database().reference().child("Userinfo").observe(.childAdded, with: { (snapshot) in
             
@@ -54,7 +55,6 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "diversCell", for: indexPath) as! FindDiversTableViewCell
-            print("TEST")
         
         let user = divers[indexPath.row]
         
@@ -63,7 +63,20 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        diver = divers[indexPath.row]
+        self.performSegue(withIdentifier: "diverInfo", sender: nil)
     }
+    
+    // Segue to next viewcontroller to get info on specific diver
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? UserProfileViewController {
+            viewController.diver = self.diver
+        }
+    }
+
+}
 
 // Function to create image from url.
 extension UIImageView {

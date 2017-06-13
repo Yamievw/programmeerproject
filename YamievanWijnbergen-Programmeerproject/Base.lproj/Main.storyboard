@@ -183,7 +183,6 @@
                                             <outlet property="diversLocation" destination="R2K-he-9NK" id="0AF-jY-oNO"/>
                                             <outlet property="diversName" destination="P3P-IK-n6n" id="k0M-il-HfU"/>
                                             <outlet property="profileImage" destination="kHD-JX-hYk" id="xHe-Ah-uSI"/>
-                                            <segue destination="5zE-38-qvE" kind="show" id="57e-Qb-e47"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -223,6 +222,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="WDr-xa-iU1" id="i1u-oJ-EHp"/>
+                        <segue destination="5zE-38-qvE" kind="show" identifier="diverInfo" id="Zb1-YV-n2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71e-6x-bfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -513,31 +513,25 @@
                                     <constraint firstAttribute="height" constant="163" id="evz-zS-j8B"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sik-Yq-g9T">
-                                <rect key="frame" x="158" y="389" width="53" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sik-Yq-g9T">
+                                <rect key="frame" x="158" y="389" width="201" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="53" id="V52-Ty-kEc"/>
+                                    <constraint firstAttribute="width" constant="201" id="V52-Ty-kEc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diving certificate type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBX-oB-3FI">
-                                <rect key="frame" x="103" y="420" width="168" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMh-wa-S3R">
+                                <rect key="frame" x="158" y="405" width="201" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years of experience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMh-wa-S3R">
-                                <rect key="frame" x="108" y="451" width="159" height="23"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of dives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5y-3z-lZ6">
-                                <rect key="frame" x="120" y="482" width="135" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5y-3z-lZ6">
+                                <rect key="frame" x="158" y="413" width="201" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="THr-Hi-JQp"/>
+                                    <constraint firstAttribute="width" constant="201" id="THr-Hi-JQp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -557,20 +551,64 @@
                                     <segue destination="bzM-hN-SjE" kind="show" id="JYg-c8-N84"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certificate:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pm7-3b-uDu">
+                                <rect key="frame" x="16" y="395" width="143" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="Ie2-zW-phL"/>
+                                    <constraint firstAttribute="height" constant="24" id="giG-VL-728"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years Experience:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-jq-cYr">
+                                <rect key="frame" x="16" y="426" width="143" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount of dives:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdN-MN-lME">
+                                <rect key="frame" x="16" y="457" width="143" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-8Q-Jy8">
+                                <rect key="frame" x="16" y="365" width="53" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBX-oB-3FI">
+                                <rect key="frame" x="158" y="395" width="201" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.62552978989999997" green="0.77707876129999998" blue="0.82363180049999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sik-Yq-g9T" firstAttribute="top" secondItem="tcd-g3-fDY" secondAttribute="bottom" constant="64" id="0Bh-ve-c0Y"/>
-                            <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="yBX-oB-3FI" secondAttribute="centerX" id="4ZE-md-3fM"/>
-                            <constraint firstItem="yBX-oB-3FI" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leadingMargin" constant="87" id="5cq-TG-gxc"/>
+                            <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="yBX-oB-3FI" secondAttribute="centerX" constant="-71.5" id="4ZE-md-3fM"/>
+                            <constraint firstItem="yBX-oB-3FI" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leadingMargin" constant="142" id="5cq-TG-gxc"/>
+                            <constraint firstItem="xEg-jq-cYr" firstAttribute="top" secondItem="Pm7-3b-uDu" secondAttribute="bottom" constant="7" id="74y-Yn-2uG"/>
+                            <constraint firstItem="VdN-MN-lME" firstAttribute="top" secondItem="xEg-jq-cYr" secondAttribute="bottom" constant="7" id="9dC-mL-Lwh"/>
+                            <constraint firstItem="fTg-8Q-Jy8" firstAttribute="leading" secondItem="Pm7-3b-uDu" secondAttribute="leading" id="9tQ-Nk-1z7"/>
+                            <constraint firstItem="xEg-jq-cYr" firstAttribute="trailing" secondItem="VdN-MN-lME" secondAttribute="trailing" id="B9Y-dS-aOi"/>
                             <constraint firstItem="g5y-3z-lZ6" firstAttribute="top" secondItem="LMh-wa-S3R" secondAttribute="bottom" constant="8" symbolic="YES" id="CGE-QS-6A1"/>
-                            <constraint firstItem="yBX-oB-3FI" firstAttribute="top" secondItem="sik-Yq-g9T" secondAttribute="bottom" constant="8" symbolic="YES" id="FDV-jd-DLe"/>
+                            <constraint firstItem="Pm7-3b-uDu" firstAttribute="top" secondItem="fTg-8Q-Jy8" secondAttribute="bottom" constant="6" id="Efy-5V-Mhn"/>
+                            <constraint firstItem="yBX-oB-3FI" firstAttribute="top" secondItem="sik-Yq-g9T" secondAttribute="bottom" constant="6" id="FDV-jd-DLe"/>
                             <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="7ha-1d-7eO" secondAttribute="centerX" id="Ho9-2Q-A2t"/>
-                            <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="g5y-3z-lZ6" secondAttribute="centerX" id="Kxs-Dc-EOV"/>
-                            <constraint firstItem="LMh-wa-S3R" firstAttribute="top" secondItem="yBX-oB-3FI" secondAttribute="bottom" constant="8" symbolic="YES" id="SBz-fK-4m7"/>
+                            <constraint firstItem="fTg-8Q-Jy8" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leadingMargin" id="IAP-e0-05T"/>
+                            <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="g5y-3z-lZ6" secondAttribute="centerX" constant="-71.5" id="Kxs-Dc-EOV"/>
+                            <constraint firstItem="VdN-MN-lME" firstAttribute="leading" secondItem="xEg-jq-cYr" secondAttribute="leading" id="N2N-LI-6A6"/>
+                            <constraint firstItem="VdN-MN-lME" firstAttribute="leading" secondItem="Pm7-3b-uDu" secondAttribute="leading" id="PMl-YE-1cZ"/>
+                            <constraint firstItem="fTg-8Q-Jy8" firstAttribute="baseline" secondItem="sik-Yq-g9T" secondAttribute="baseline" id="R6O-bc-SN0"/>
+                            <constraint firstItem="LMh-wa-S3R" firstAttribute="top" secondItem="yBX-oB-3FI" secondAttribute="bottom" constant="10" id="SBz-fK-4m7"/>
+                            <constraint firstItem="Pm7-3b-uDu" firstAttribute="trailing" secondItem="xEg-jq-cYr" secondAttribute="trailing" id="SQp-5b-E7p"/>
                             <constraint firstItem="Zmr-eJ-xtI" firstAttribute="top" secondItem="BJf-P5-Btu" secondAttribute="bottom" constant="8" symbolic="YES" id="hfj-XM-f8p"/>
-                            <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="LMh-wa-S3R" secondAttribute="centerX" id="hrA-1C-4PN"/>
-                            <constraint firstItem="LMh-wa-S3R" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leadingMargin" constant="92" id="pFS-He-Eya"/>
+                            <constraint firstItem="BJf-P5-Btu" firstAttribute="centerX" secondItem="LMh-wa-S3R" secondAttribute="centerX" constant="-71.5" id="hrA-1C-4PN"/>
+                            <constraint firstItem="LMh-wa-S3R" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leadingMargin" constant="142" id="pFS-He-Eya"/>
                             <constraint firstItem="sik-Yq-g9T" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leading" constant="158" id="q4z-Oc-h0c"/>
                             <constraint firstItem="tcd-g3-fDY" firstAttribute="top" secondItem="sur-pU-cKJ" secondAttribute="bottom" constant="98" id="trp-mh-ToB"/>
                             <constraint firstItem="tcd-g3-fDY" firstAttribute="leading" secondItem="7ha-1d-7eO" secondAttribute="leadingMargin" constant="85" id="yrB-B7-vKL"/>
@@ -578,6 +616,13 @@
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="diverCertificate" destination="yBX-oB-3FI" id="4h2-vd-1G9"/>
+                        <outlet property="diverDives" destination="g5y-3z-lZ6" id="0sd-Bl-2Ok"/>
+                        <outlet property="diverExperience" destination="LMh-wa-S3R" id="QGj-Kj-Mlp"/>
+                        <outlet property="diverImage" destination="tcd-g3-fDY" id="XJH-1h-a6C"/>
+                        <outlet property="diverName" destination="sik-Yq-g9T" id="n12-pJ-k9V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sA-kT-wYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
