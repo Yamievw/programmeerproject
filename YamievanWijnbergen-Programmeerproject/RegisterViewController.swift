@@ -88,7 +88,7 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
                 Auth.auth().signIn(withEmail: self.emailField.text!,password: self.passwordField.text!)
                 
                 if Auth.auth().currentUser != nil {
-                    self.performSegue(withIdentifier: "RegisterToFindDivers", sender: self)
+                    self.performSegue(withIdentifier: "registerToMap", sender: self)
                 }
             }
  
