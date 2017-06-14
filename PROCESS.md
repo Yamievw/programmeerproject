@@ -23,4 +23,8 @@ Vandaag is het gelukt om informatie op te halen vanuit Firebase en deze weer te 
 Ik had vandaag niet heel veel tijd. Ik ben begonnen met het ophalen van alle gebruikers in FindDivers (niet gebaseerd op locatie). Dit is niet helemaal gelukt.
 
 ## 13 juni
-Het is vandaag wel gelukt met het ophalen van alle gebruikers. Ook is het gelukt om de UserProfile werkend te krijgen met alle persoonlijke info per profiel te zien. Ik heb vandaag besloten dat ik een Mapview wil gebruiken in plaats van in een lijst zien welke gebruikers in de buurt zijn. Op deze manier zie je handmatig wie er in de buurt is, en kan je ook voor andere gebieden zien waar gebruikers zijn zodat je meer mogelijkheden hebt om ergens anders te duiken in plaats van waar je zelf zit.
+Het is vandaag wel gelukt met het ophalen van alle gebruikers. Ook is het gelukt om de UserProfile werkend te krijgen met alle persoonlijke info per profiel te zien. Ik heb vandaag besloten dat ik een Mapview wil gebruiken in plaats van in een lijst zien welke gebruikers in de buurt zijn. Op deze manier zie je handmatig wie er in de buurt is, en kan je ook voor andere gebieden zien waar gebruikers zijn zodat je meer mogelijkheden hebt om ergens anders te duiken in plaats van waar je zelf zit. Ik heb dus vandaag de MapKit geimporteerd en ervoor gezorgd dat de locatie van de huidige gebruiker te zien is.
+
+## 14 juni
+Vandaag heb ik gekeken hoe ik alle gebruikers op de map kon krijgen en deze met een pin te zien kon krijgen. Dit is gelukt. Het is nog niet gelukt om een segue te maken vanuit de pin naar het profiel van die gebruiker.
+
