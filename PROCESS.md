@@ -28,3 +28,5 @@ Het is vandaag wel gelukt met het ophalen van alle gebruikers. Ook is het gelukt
 ## 14 juni
 Vandaag heb ik gekeken hoe ik alle gebruikers op de map kon krijgen en deze met een pin te zien kon krijgen. Dit is gelukt. Het is nog niet gelukt om een segue te maken vanuit de pin naar het profiel van die gebruiker.
 
+## 15 juni
+Het ging vandaag niet zo lekker. Ik was verder gegaan met het uitpuzzelen van een segue vanuit de pin naar de UserProfile, met heel veel hulp van Marijn kwamen we er nogsteeds niet uit. Hierdoor heb ik niet echt meer verder kunnen werken, omdat ik zonder gebruikers ook niet aan mn chatfunctie kan beginnen. Dus toen ben ik vast tutorials gaan zoeken over het implementeren van een chatfunctie.
