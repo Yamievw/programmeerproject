@@ -13,11 +13,16 @@ import MapKit
 
 class DiversMapViewController: UIViewController, MKMapViewDelegate {
     
+    var diverss = [Annotation]()
+    var divers = [User]()
+    var diver: User?
+    
     @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Get Map.
         mapView.showsUserLocation = true
         mapView.delegate = self
         mapView.isZoomEnabled = true
@@ -37,24 +42,25 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.setRegion(region, animated: true)
     }
-    
+
     // Get only location for each user.
     func getUserLocations() {
         Database.database().reference().child("Userinfo").observe(.value, with: { (snapshot) in
             for item in snapshot.children {
                 guard let locationData = item as? DataSnapshot else { continue }
-                let locationValue = locationData.value as! [String: Any]
-                
-                let location = CLLocationCoordinate2D(latitude: locationValue["latitude"] as! Double, longitude: locationValue["longitude"] as! Double)
-                let name = locationValue["name"] as! String
-                print(location)
-                print(name)
-                
+                let dictionary = locationData.value as! [String: Any]
+                let location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
+                print(dictionary)
+                let user = User(dictionary: dictionary)
+                let diver = Annotation(user: user)
+                print(diver.user)
+                self.diverss.append(diver)
+
                 // Create a pin for each user-location.
                 let pin = MKPointAnnotation()
                 pin.coordinate = location
-                pin.title = locationValue["name"] as? String
-                pin.subtitle = locationValue["certificate"] as? String
+                pin.title = dictionary["name"] as? String
+                pin.subtitle = dictionary["certificate"] as? String
                 self.mapView.addAnnotation(pin)
             }
         })
@@ -78,17 +84,19 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? UserProfileViewController {
-            viewController.diver = self.diver
-        }
-    }
-    
     // Segue to UserProfile.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            
+            print((view.annotation! as? Annotation)?.test)
+            self.diver = (view.annotation! as? Annotation)?.user
             performSegue(withIdentifier: "diversInfo", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? UserProfileViewController {
+            print(self.diver)
+            viewController.diver = self.diver
         }
     }
 }

@@ -34,6 +34,7 @@ class FindDiversViewController: UIViewController, UITableViewDelegate, UITableVi
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let diver = User(dictionary: dictionary)
                 self.divers.append(diver)
+                print(dictionary)
                 
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()

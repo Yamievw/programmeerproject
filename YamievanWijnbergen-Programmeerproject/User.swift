@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class User: NSObject {
     var name: String?
@@ -14,6 +15,7 @@ class User: NSObject {
     var experience: String?
     var dives: String?
     var certificate: String?
+    var location: CLLocationCoordinate2D
     
     init(dictionary: [String: Any]) {
         self.name = dictionary["name"] as? String ?? ""
@@ -21,5 +23,6 @@ class User: NSObject {
         self.experience = dictionary["experience"] as? String ?? ""
         self.dives = dictionary["dives"] as? String ?? ""
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
+        self.location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
     }
 }

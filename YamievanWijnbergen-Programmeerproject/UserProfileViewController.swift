@@ -34,6 +34,7 @@ class UserProfileViewController: UIViewController {
     }
     
     func updateDiver() {
+        print(diver)
         diverImage.imageFromURL(url: (diver?.profileImageUrl)!)
         diverName.text = (diver?.name)!
         diverCertificate.text = (diver?.certificate)!
