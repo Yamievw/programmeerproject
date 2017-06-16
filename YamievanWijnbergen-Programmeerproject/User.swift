@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 class User: NSObject {
+    var id: String?
     var name: String?
     var profileImageUrl: String?
     var experience: String?

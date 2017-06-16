@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		6C4ED50E1EEAFCAA00C803FA /* proposalsketch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */; };
 		6C4ED5111EEC1B0C00C803FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5101EEC1B0C00C803FA /* User.swift */; };
-		6C4ED5131EEE924100C803FA /* FindDiversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5121EEE924100C803FA /* FindDiversTableViewCell.swift */; };
 		6C4ED5171EF0186900C803FA /* DiversMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5161EF0186900C803FA /* DiversMapViewController.swift */; };
 		6C4ED5191EF0192C00C803FA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C4ED5181EF0192C00C803FA /* MapKit.framework */; };
 		6C4ED51F1EF16CC500C803FA /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED51E1EF16CC500C803FA /* Annotation.swift */; };
+		6C4ED5231EF3D83D00C803FA /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5221EF3D83D00C803FA /* MessageViewController.swift */; };
+		6C4ED5251EF3D85100C803FA /* MessageLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5241EF3D85100C803FA /* MessageLogViewController.swift */; };
 		6C7DA3671EE6E2E800CB590B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DA3661EE6E2E800CB590B /* README.md */; };
 		6C7DA3691EE8192700CB590B /* DESIGN.md in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DA3681EE8192700CB590B /* DESIGN.md */; };
 		6C7DA36B1EE81C1800CB590B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DA36A1EE81C1800CB590B /* LogInViewController.swift */; };
@@ -25,7 +26,6 @@
 		6CE2D0A41EE47B3600583B5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2D0A21EE47B3600583B5C /* Main.storyboard */; };
 		6CE2D0A61EE47B3600583B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2D0A51EE47B3600583B5C /* Assets.xcassets */; };
 		6CE2D0A91EE47B3600583B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE2D0A71EE47B3600583B5C /* LaunchScreen.storyboard */; };
-		6CFA364A1EE96C8F0026F827 /* FindDiversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA36491EE96C8F0026F827 /* FindDiversViewController.swift */; };
 		6CFA364C1EE971540026F827 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFA364B1EE971540026F827 /* HomeViewController.swift */; };
 		6CFA364E1EEA847D0026F827 /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFA364D1EEA847D0026F827 /* screenshot2.png */; };
 		6CFA36531EEAE7F90026F827 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFA36521EEAE7F90026F827 /* CoreLocation.framework */; };
@@ -37,10 +37,11 @@
 		630999726415804583945ED7 /* Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YamievanWijnbergen-Programmeerproject/Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig"; sourceTree = "<group>"; };
 		6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = proposalsketch.jpg; sourceTree = "<group>"; };
 		6C4ED5101EEC1B0C00C803FA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		6C4ED5121EEE924100C803FA /* FindDiversTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDiversTableViewCell.swift; sourceTree = "<group>"; };
 		6C4ED5161EF0186900C803FA /* DiversMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiversMapViewController.swift; sourceTree = "<group>"; };
 		6C4ED5181EF0192C00C803FA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6C4ED51E1EF16CC500C803FA /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		6C4ED5221EF3D83D00C803FA /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		6C4ED5241EF3D85100C803FA /* MessageLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageLogViewController.swift; sourceTree = "<group>"; };
 		6C7DA3661EE6E2E800CB590B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		6C7DA3681EE8192700CB590B /* DESIGN.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = DESIGN.md; sourceTree = "<group>"; };
 		6C7DA36A1EE81C1800CB590B /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		6CE2D0A81EE47B3600583B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CE2D0AA1EE47B3600583B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CFA36451EE94E0D0026F827 /* YamievanWijnbergen-Programmeerproject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "YamievanWijnbergen-Programmeerproject.entitlements"; sourceTree = "<group>"; };
-		6CFA36491EE96C8F0026F827 /* FindDiversViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindDiversViewController.swift; sourceTree = "<group>"; };
 		6CFA364B1EE971540026F827 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6CFA364D1EEA847D0026F827 /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		6CFA36521EEAE7F90026F827 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -131,11 +131,11 @@
 				6CFA364B1EE971540026F827 /* HomeViewController.swift */,
 				6C7DA36A1EE81C1800CB590B /* LogInViewController.swift */,
 				6C7DA36C1EE82F4D00CB590B /* RegisterViewController.swift */,
+				6C4ED5241EF3D85100C803FA /* MessageLogViewController.swift */,
+				6C4ED5221EF3D83D00C803FA /* MessageViewController.swift */,
 				6C4ED5161EF0186900C803FA /* DiversMapViewController.swift */,
 				6C7DA36E1EE82F6A00CB590B /* MyProfileViewController.swift */,
 				6C7DA3701EE82F7E00CB590B /* UserProfileViewController.swift */,
-				6CFA36491EE96C8F0026F827 /* FindDiversViewController.swift */,
-				6C4ED5121EEE924100C803FA /* FindDiversTableViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,15 +295,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C7DA36F1EE82F6A00CB590B /* MyProfileViewController.swift in Sources */,
-				6CFA364A1EE96C8F0026F827 /* FindDiversViewController.swift in Sources */,
+				6C4ED5231EF3D83D00C803FA /* MessageViewController.swift in Sources */,
 				6C7DA3671EE6E2E800CB590B /* README.md in Sources */,
 				6C7DA3711EE82F7E00CB590B /* UserProfileViewController.swift in Sources */,
 				6C7DA36D1EE82F4D00CB590B /* RegisterViewController.swift in Sources */,
 				6CFA364C1EE971540026F827 /* HomeViewController.swift in Sources */,
 				6C7DA3691EE8192700CB590B /* DESIGN.md in Sources */,
+				6C4ED5251EF3D85100C803FA /* MessageLogViewController.swift in Sources */,
 				6C7DA37B1EE831D400CB590B /* PROCESS.md in Sources */,
 				6C7DA36B1EE81C1800CB590B /* LogInViewController.swift in Sources */,
-				6C4ED5131EEE924100C803FA /* FindDiversTableViewCell.swift in Sources */,
 				6CE2D09F1EE47B3600583B5C /* AppDelegate.swift in Sources */,
 				6C4ED5171EF0186900C803FA /* DiversMapViewController.swift in Sources */,
 				6C4ED51F1EF16CC500C803FA /* Annotation.swift in Sources */,

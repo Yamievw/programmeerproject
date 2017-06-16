@@ -14,18 +14,11 @@ class Annotation: NSObject, MKAnnotation {
     var user : User?
     var title : String?
     var subtitle : String?
-    var test: String
-    
-//    init(coordinate: CLLocationCoordinate2D, title: String!, subtitle: String!){
-//        self.coordinate = coordinate
-//        self.title = title
-//        self.subtitle = subtitle
-//    }
     
     init(user: User) {
         self.coordinate = user.location
         self.title = user.name!
+        self.subtitle = user.certificate!
         self.user = user
-        self.test = "hi"
     }
 }

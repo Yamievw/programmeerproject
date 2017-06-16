@@ -42,27 +42,19 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.setRegion(region, animated: true)
     }
-
+    
     // Get only location for each user.
     func getUserLocations() {
-        Database.database().reference().child("Userinfo").observe(.value, with: { (snapshot) in
-            for item in snapshot.children {
-                guard let locationData = item as? DataSnapshot else { continue }
-                let dictionary = locationData.value as! [String: Any]
-                let location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
-                print(dictionary)
-                let user = User(dictionary: dictionary)
-                let diver = Annotation(user: user)
-                print(diver.user)
-                self.diverss.append(diver)
-
-//                // Create a pin for each user-location.
-//                let pin = MKPointAnnotation()
-//                pin.coordinate = location
-//                pin.title = dictionary["name"] as? String
-//                pin.subtitle = dictionary["certificate"] as? String
-                self.mapView.addAnnotation(diver)
-            }
+        Database.database().reference().child("Userinfo").observe(.childAdded, with: { (snapshot) in
+            let dictionary = snapshot.value as! [String: Any]
+            let location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
+            let user = User(dictionary: dictionary)
+            let diversss = Annotation(user: user)
+            user.id = snapshot.key
+            
+            self.diverss.append(diversss)
+            
+            self.mapView.addAnnotation(diversss)
         })
     }
     
@@ -87,7 +79,6 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
     // Segue to UserProfile.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            print((view.annotation! as? Annotation)?.test)
             self.diver = (view.annotation! as? Annotation)?.user
             performSegue(withIdentifier: "diversInfo", sender: self)
         }
@@ -95,7 +86,6 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? UserProfileViewController {
-            print(self.diver)
             viewController.diver = self.diver!
         }
     }
