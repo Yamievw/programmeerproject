@@ -56,12 +56,12 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
                 print(diver.user)
                 self.diverss.append(diver)
 
-                // Create a pin for each user-location.
-                let pin = MKPointAnnotation()
-                pin.coordinate = location
-                pin.title = dictionary["name"] as? String
-                pin.subtitle = dictionary["certificate"] as? String
-                self.mapView.addAnnotation(pin)
+//                // Create a pin for each user-location.
+//                let pin = MKPointAnnotation()
+//                pin.coordinate = location
+//                pin.title = dictionary["name"] as? String
+//                pin.subtitle = dictionary["certificate"] as? String
+                self.mapView.addAnnotation(diver)
             }
         })
     }
@@ -96,7 +96,7 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? UserProfileViewController {
             print(self.diver)
-            viewController.diver = self.diver
+            viewController.diver = self.diver!
         }
     }
 }

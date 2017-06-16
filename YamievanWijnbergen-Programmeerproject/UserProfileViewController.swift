@@ -16,8 +16,10 @@ class UserProfileViewController: UIViewController {
     var diver: User?
     
     @IBOutlet weak var diverImage: UIImageView!
-    @IBOutlet weak var diverName: UILabel!
-    @IBOutlet weak var diverCertificate: UILabel!
+    
+    @IBOutlet weak var diverNameText: UITextView!
+
+    @IBOutlet weak var diverCertificateText: UITextView!
     @IBOutlet weak var diverExperience: UILabel!
     @IBOutlet weak var diverDives: UILabel!
     
@@ -34,10 +36,11 @@ class UserProfileViewController: UIViewController {
     }
     
     func updateDiver() {
-        print(diver)
+        print("UPDATE", diver)
+        print(diver?.name!)
         diverImage.imageFromURL(url: (diver?.profileImageUrl)!)
-        diverName.text = (diver?.name)!
-        diverCertificate.text = (diver?.certificate)!
+        diverNameText.text = (diver?.name)!
+        diverCertificateText.text = (diver?.certificate)!
         diverExperience.text = (diver?.experience)!
         diverDives.text = (diver?.dives)!
     }

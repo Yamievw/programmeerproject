@@ -13,8 +13,9 @@ import FirebaseDatabase
 class MyProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var myName: UILabel!
-    @IBOutlet weak var myCertificate: UILabel!
+    @IBOutlet weak var myNameText: UITextView!
+
+    @IBOutlet weak var myCertificateText: UITextView!
     @IBOutlet weak var myExperience: UILabel!
     @IBOutlet weak var myDives: UILabel!
     
@@ -39,9 +40,9 @@ class MyProfileViewController: UIViewController {
             Database.database().reference().child("Userinfo").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: Any] {
-                    self.myName.text = dictionary["name"] as? String
+                    self.myNameText.text = dictionary["name"] as? String
                     self.myExperience.text = dictionary["experience"] as? String
-                    self.myCertificate.text = dictionary["certificate"] as? String
+                    self.myCertificateText.text = dictionary["certificate"] as? String
                     self.myDives.text = dictionary["dives"] as? String
                     
                     // Get user profile picture from URL
