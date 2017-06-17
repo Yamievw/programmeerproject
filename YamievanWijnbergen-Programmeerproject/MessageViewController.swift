@@ -37,6 +37,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate {
         // Save messages to Firebase.
         let ref = Database.database().reference().child("Messages")
         let childRef = ref.childByAutoId()
+        
         let toId = diver!.id!
         let fromId = Auth.auth().currentUser!.uid
         let timestamp = NSDate().timeIntervalSince1970

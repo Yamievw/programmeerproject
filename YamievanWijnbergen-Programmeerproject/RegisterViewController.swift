@@ -122,7 +122,7 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
     
     // Setup Firebase Database.
     private func registerUserIntoDatabase(uid: String, values: [String: AnyObject]){
-        let ref = Database.database().reference(fromURL: "https://programmeerproject-820ae.firebaseio.com/")
+        let ref = Database.database().reference()
         let userReference = ref.child("Userinfo").child(uid)
         
         userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
