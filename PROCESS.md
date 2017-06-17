@@ -30,3 +30,9 @@ Vandaag heb ik gekeken hoe ik alle gebruikers op de map kon krijgen en deze met 
 
 ## 15 juni
 Het ging vandaag niet zo lekker. Ik was verder gegaan met het uitpuzzelen van een segue vanuit de pin naar de UserProfile, met heel veel hulp van Marijn kwamen we er nogsteeds niet uit. Hierdoor heb ik niet echt meer verder kunnen werken, omdat ik zonder gebruikers ook niet aan mn chatfunctie kan beginnen. Dus toen ben ik vast tutorials gaan zoeken over het implementeren van een chatfunctie.
+
+## 16 juni
+Het is gelukt met UserProfile. Ook is het gelukt om chatberichten op te slaan in Firebase
+
+## 17 juni
+De MessageLog werkt. Alleen timestamp lukte niet om erbij te zetten.
