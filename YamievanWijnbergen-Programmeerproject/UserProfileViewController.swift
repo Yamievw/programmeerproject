@@ -47,6 +47,7 @@ class UserProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? MessageViewController {
             viewController.diver = self.diver!
+            print(viewController.diver, self.diver!)
         }
     }
 }

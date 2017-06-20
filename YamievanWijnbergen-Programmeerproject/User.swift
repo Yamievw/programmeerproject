@@ -19,6 +19,7 @@ class User: NSObject {
     var location: CLLocationCoordinate2D
     
     init(dictionary: [String: Any]) {
+        self.id = dictionary["id"] as? String ?? ""
         self.name = dictionary["name"] as? String ?? ""
         self.certificate = dictionary["certificate"] as? String ?? ""
         self.experience = dictionary["experience"] as? String ?? ""

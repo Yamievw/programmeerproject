@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class Message: NSObject {
     var fromId: String?
@@ -19,6 +20,15 @@ class Message: NSObject {
         self.text = dictionary["text"] as? String ?? ""
         //self.timestamp = dictionary["timestamp"] as? NSNumber ?? ""
         self.toId = dictionary["toId"] as? String ?? ""
+    }
+    
+    // Make sure current user doesn't see his own name in message log.
+    func chatPartnerId() -> String? {
+        if fromId == Auth.auth().currentUser?.uid {
+            return toId!
+        } else {
+            return fromId!
+        }
     }
 
 }

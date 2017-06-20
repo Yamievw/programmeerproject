@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C0BC5701EF402830099E9DD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BC56F1EF402830099E9DD /* Message.swift */; };
 		6C0BC5741EF406590099E9DD /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BC5731EF406590099E9DD /* MessageTableViewCell.swift */; };
+		6C0BC5761EF932D90099E9DD /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0BC5751EF932D90099E9DD /* MessageCollectionViewCell.swift */; };
 		6C4ED50E1EEAFCAA00C803FA /* proposalsketch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */; };
 		6C4ED5111EEC1B0C00C803FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5101EEC1B0C00C803FA /* User.swift */; };
 		6C4ED5171EF0186900C803FA /* DiversMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4ED5161EF0186900C803FA /* DiversMapViewController.swift */; };
@@ -39,6 +40,7 @@
 		630999726415804583945ED7 /* Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig"; path = "Pods/Target Support Files/Pods-YamievanWijnbergen-Programmeerproject/Pods-YamievanWijnbergen-Programmeerproject.release.xcconfig"; sourceTree = "<group>"; };
 		6C0BC56F1EF402830099E9DD /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6C0BC5731EF406590099E9DD /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		6C0BC5751EF932D90099E9DD /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		6C4ED50D1EEAFCAA00C803FA /* proposalsketch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = proposalsketch.jpg; sourceTree = "<group>"; };
 		6C4ED5101EEC1B0C00C803FA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6C4ED5161EF0186900C803FA /* DiversMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiversMapViewController.swift; sourceTree = "<group>"; };
@@ -136,12 +138,13 @@
 				6CFA364B1EE971540026F827 /* HomeViewController.swift */,
 				6C7DA36A1EE81C1800CB590B /* LogInViewController.swift */,
 				6C7DA36C1EE82F4D00CB590B /* RegisterViewController.swift */,
-				6C4ED5241EF3D85100C803FA /* MessageLogViewController.swift */,
-				6C4ED5221EF3D83D00C803FA /* MessageViewController.swift */,
-				6C0BC5731EF406590099E9DD /* MessageTableViewCell.swift */,
 				6C4ED5161EF0186900C803FA /* DiversMapViewController.swift */,
 				6C7DA36E1EE82F6A00CB590B /* MyProfileViewController.swift */,
 				6C7DA3701EE82F7E00CB590B /* UserProfileViewController.swift */,
+				6C4ED5241EF3D85100C803FA /* MessageLogViewController.swift */,
+				6C4ED5221EF3D83D00C803FA /* MessageViewController.swift */,
+				6C0BC5731EF406590099E9DD /* MessageTableViewCell.swift */,
+				6C0BC5751EF932D90099E9DD /* MessageCollectionViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				6C7DA36F1EE82F6A00CB590B /* MyProfileViewController.swift in Sources */,
 				6C4ED5231EF3D83D00C803FA /* MessageViewController.swift in Sources */,
+				6C0BC5761EF932D90099E9DD /* MessageCollectionViewCell.swift in Sources */,
 				6C7DA3671EE6E2E800CB590B /* README.md in Sources */,
 				6C0BC5741EF406590099E9DD /* MessageTableViewCell.swift in Sources */,
 				6C7DA3711EE82F7E00CB590B /* UserProfileViewController.swift in Sources */,

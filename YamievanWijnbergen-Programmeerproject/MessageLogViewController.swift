@@ -13,45 +13,87 @@ import FirebaseAuth
 class MessageLogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var messages = [Message]()
-    var message: Message?
+    //var message: Message?
     var messagesDict = [String: Message]()
+    
+    var diver: User?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        observeMessages()
+
+        observeUserMessages()
+        clearTable()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func observeMessages() {
-        let ref = Database.database().reference().child("Messages")
+    func observeUserMessages() {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
             
-            if let dictionary = snapshot.value as? [String:AnyObject] {
-                let message = Message(dictionary: dictionary)
-                //self.messages.append(message)
-                
-                if let toId = message.toId {
-                    self.messagesDict[toId] = message
+            let messageId = snapshot.key
+            let messagesReference = Database.database().reference().child("Messages").child(messageId)
+            
+            messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String:AnyObject] {
+                    let message = Message(dictionary: dictionary)
                     
-                    self.messages = Array(self.messagesDict.values)
-//                    self.messages.sort(by: { (message1, message2) -> Bool in
-//                        return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
-//                    })
+                    if let toId = message.toId {
+                        self.messagesDict[toId] = message
+                        
+                        self.messages = Array(self.messagesDict.values)
+                        //                    self.messages.sort(by: { (message1, message2) -> Bool in
+                        //                        return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
+                        //                    })
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
+            })
         })
     }
-
+    
+//    func observeMessages() {
+//        let ref = Database.database().reference().child("Messages")
+//        ref.observe(.childAdded, with: { (snapshot) in
+//            
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                let message = Message(dictionary: dictionary)
+//                
+//                if let toId = message.toId {
+//                    self.messagesDict[toId] = message
+//                    
+//                    self.messages = Array(self.messagesDict.values)
+////                    self.messages.sort(by: { (message1, message2) -> Bool in
+////                        
+////                        return message1.timestamp?.int32Value > message2.timestamp?.int32Value
+////                    })
+//                }
+//                
+//                DispatchQueue.main.async(execute: {
+//                    self.tableView.reloadData()
+//                })
+//            }
+//        })
+//    }
+    
+    // Clear table so it only loads conversations that belong to user.
+    func clearTable() {
+        messages.removeAll()
+        messagesDict.removeAll()
+        tableView.reloadData()
+    }
+    
     // MARK: Create TableView.
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -67,8 +109,8 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         let message = messages[indexPath.row]
         
         // Get info about messges for log.
-        if let toId = message.toId {
-            let ref = Database.database().reference().child("Userinfo").child(toId)
+        if let id = message.chatPartnerId() {
+            let ref = Database.database().reference().child("Userinfo").child(id)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String:AnyObject] {
                     cell.nameText?.text = dictionary["name"] as? String
@@ -93,6 +135,40 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
+    
+    // Segue to chatInfo with matching conversation.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let messageee = messages[indexPath.row]
+        
+        guard let chatPartnerId = messageee.chatPartnerId() else {
+            return
+        }
+        
+        //self.diver = messageee.chatPartnerId
+//
+//        let ref = Database.database().reference().child("Userinfo").child(chatPartnerId)
+//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let dictionary = snapshot.value as? [String: Any] else {
+//                return
+//            }
+//            
+//            let diver = User(dictionary: dictionary)
+//            diver.id = chatPartnerId
+//            print(chatPartnerId)
+//            print(diver.id)
+//            })
+    
+        self.performSegue(withIdentifier: "chatInfo", sender: nil)
+    }
+    
+    // Segue to next viewcontroller to get info on specific book
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? MessageViewController {
+            viewController.diver = self.diver
+            print(viewController.diver, self.diver)
+        }
+    }
+
     
 //    // Delete book from tableview and database.
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
