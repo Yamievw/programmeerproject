@@ -26,9 +26,9 @@ class Message: NSObject {
     // Make sure current user doesn't see his own name in message log.
     func chatPartnerId() -> String? {
         if fromId == Auth.auth().currentUser?.uid {
-            return toId!
+            return toId
         } else {
-            return fromId!
+            return fromId
         }
     }
     

@@ -410,7 +410,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellMe" id="Yzv-G2-U48" customClass="MessageCollectionViewCell" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target">
-                                        <rect key="frame" x="12.5" y="0.0" width="350" height="61"/>
+                                        <rect key="frame" x="13" y="0.0" width="350" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
@@ -419,16 +419,21 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fL-54-ti5">
                                                     <rect key="frame" x="146" y="0.0" width="200" height="61"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="O2F-HS-Sfc">
-                                                            <rect key="frame" x="2.5" y="2" width="200" height="57"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.32192448270000001" green="0.59812796899999998" blue="0.76449326309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="O2F-HS-Sfc">
+                                                            <rect key="frame" x="3" y="2" width="200" height="57"/>
+                                                            <color key="backgroundColor" red="0.78413703000000001" green="0.91623193169999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="O2F-HS-Sfc" firstAttribute="leading" secondItem="7fL-54-ti5" secondAttribute="leading" constant="3" id="HCD-ug-aHJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="O2F-HS-Sfc" secondAttribute="trailing" constant="-3" id="UWu-5x-ryV"/>
+                                                        <constraint firstItem="O2F-HS-Sfc" firstAttribute="top" secondItem="7fL-54-ti5" secondAttribute="top" constant="2" id="bqW-vX-hYT"/>
+                                                        <constraint firstItem="O2F-HS-Sfc" firstAttribute="centerY" secondItem="7fL-54-ti5" secondAttribute="centerY" id="jKh-Du-YoY"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                         </view>
@@ -443,29 +448,39 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellYou" id="QIE-oA-aDU" customClass="MessageCollectionViewCell" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target">
-                                        <rect key="frame" x="12.5" y="71" width="350" height="61"/>
+                                        <rect key="frame" x="13" y="71" width="350" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJW-JM-7xm">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJW-JM-7xm">
                                                     <rect key="frame" x="3" y="0.0" width="200" height="61"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cZP-P0-4NK">
-                                                            <rect key="frame" x="-1.5" y="2" width="200" height="57"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.91398154149999999" green="0.89379737029999995" blue="0.65914523410000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cZP-P0-4NK">
+                                                            <rect key="frame" x="-2" y="2" width="200" height="57"/>
+                                                            <color key="backgroundColor" red="0.91398154149999999" green="0.91398154149999999" blue="0.91398154149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="cZP-P0-4NK" firstAttribute="leading" secondItem="jJW-JM-7xm" secondAttribute="leading" constant="-2" id="56B-Ys-N47"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cZP-P0-4NK" secondAttribute="trailing" constant="2" id="LES-ZE-Id6"/>
+                                                        <constraint firstItem="cZP-P0-4NK" firstAttribute="centerY" secondItem="jJW-JM-7xm" secondAttribute="centerY" id="jZf-hy-kxO"/>
+                                                        <constraint firstItem="cZP-P0-4NK" firstAttribute="top" secondItem="jJW-JM-7xm" secondAttribute="top" constant="2" id="zzA-M6-Ren"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="jJW-JM-7xm" firstAttribute="top" secondItem="QIE-oA-aDU" secondAttribute="top" id="9hu-Q5-NJf"/>
+                                            <constraint firstItem="jJW-JM-7xm" firstAttribute="leading" secondItem="QIE-oA-aDU" secondAttribute="leadingMargin" constant="-5" id="ULt-9b-aX5"/>
+                                            <constraint firstAttribute="bottom" secondItem="jJW-JM-7xm" secondAttribute="bottom" id="XUQ-2h-gDI"/>
+                                            <constraint firstAttribute="trailing" secondItem="jJW-JM-7xm" secondAttribute="trailing" constant="147" id="isf-T9-ywg"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="messageText" destination="cZP-P0-4NK" id="QwR-6S-ZRo"/>
                                         </connections>
