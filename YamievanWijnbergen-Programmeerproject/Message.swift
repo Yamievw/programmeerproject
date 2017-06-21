@@ -19,7 +19,7 @@ class Message: NSObject {
     init(dictionary: [String: Any]) {
         self.fromId = dictionary["fromId"] as? String
         self.text = dictionary["text"] as? String
-        //self.timestamp = dictionary["timestamp"] as? NSNumber ?? ""
+        self.timestamp = dictionary["timestamp"] as? NSNumber
         self.toId = dictionary["toId"] as? String
     }
     

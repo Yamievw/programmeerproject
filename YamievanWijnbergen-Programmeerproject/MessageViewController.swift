@@ -31,6 +31,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
 
         self.inputField.delegate = self
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,6 +101,13 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         
         return true
     }
+    
+//    private func estimateFrameForText (text: String) -> CGRect {
+//        let size = CGSize(width: 200, height: 1000)
+//        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+//        
+//        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFontSize(17)], context: nil)
+//    }
     
     // MARK: Create Collection View.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

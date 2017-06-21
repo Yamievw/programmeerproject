@@ -49,9 +49,9 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
                         self.messagesDict[toId] = message
                         
                         self.messages = Array(self.messagesDict.values)
-                        //                    self.messages.sort(by: { (message1, message2) -> Bool in
-                        //                        return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
-                        //                    })
+                        self.messages.sort(by: { (message1, message2) -> Bool in
+                            return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
+                        })
                     }
                     
                     DispatchQueue.main.async {
@@ -102,13 +102,13 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         cell.nameText?.text = message.toId
         cell.messageLabel?.text = message.text
 
-//        if let seconds = message.timestamp?.doubleValue {
-//            let timestampDate = Date(timeIntervalSince1970: seconds)
-//            
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "hh:mm:ss a"
-//            cell.timeStamp?.text = dateFormatter.string(from: timestampDate)
-//        }
+        if let seconds = message.timestamp?.doubleValue {
+            let timestampDate = Date(timeIntervalSince1970: seconds)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a"
+            cell.timeStamp?.text = dateFormatter.string(from: timestampDate)
+        }
         
         return cell
     }
