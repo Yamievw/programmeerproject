@@ -23,7 +23,6 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        observeUserMessages()
         clearTable()
     }
 
@@ -63,35 +62,13 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         })
     }
     
-//    func observeMessages() {
-//        let ref = Database.database().reference().child("Messages")
-//        ref.observe(.childAdded, with: { (snapshot) in
-//            
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let message = Message(dictionary: dictionary)
-//                
-//                if let toId = message.toId {
-//                    self.messagesDict[toId] = message
-//                    
-//                    self.messages = Array(self.messagesDict.values)
-////                    self.messages.sort(by: { (message1, message2) -> Bool in
-////                        
-////                        return message1.timestamp?.int32Value > message2.timestamp?.int32Value
-////                    })
-//                }
-//                
-//                DispatchQueue.main.async(execute: {
-//                    self.tableView.reloadData()
-//                })
-//            }
-//        })
-//    }
-    
     // Clear table so it only loads conversations that belong to user.
     func clearTable() {
         messages.removeAll()
         messagesDict.removeAll()
         tableView.reloadData()
+        
+        observeUserMessages()
     }
     
     // MARK: Create TableView.
@@ -138,34 +115,32 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     
     // Segue to chatInfo with matching conversation.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let messageee = messages[indexPath.row]
+        let message = messages[indexPath.row]
+
         
-        guard let chatPartnerId = messageee.chatPartnerId() else {
+        guard let chatPartnerId = message.chatPartnerId() else {
             return
         }
         
-        //self.diver = messageee.chatPartnerId
-//
-//        let ref = Database.database().reference().child("Userinfo").child(chatPartnerId)
-//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let dictionary = snapshot.value as? [String: Any] else {
-//                return
-//            }
-//            
-//            let diver = User(dictionary: dictionary)
-//            diver.id = chatPartnerId
-//            print(chatPartnerId)
-//            print(diver.id)
-//            })
-    
-        self.performSegue(withIdentifier: "chatInfo", sender: nil)
+        let ref = Database.database().reference().child("Userinfo").child(chatPartnerId)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+
+            guard let dictionary = snapshot.value as? [String: AnyObject] else {
+                return
+            }
+
+            self.diver = User(dictionary: dictionary)
+            self.diver?.id = chatPartnerId
+            
+            self.performSegue(withIdentifier: "chatInfo", sender: self)
+
+            })
     }
     
     // Segue to next viewcontroller to get info on specific book
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? MessageViewController {
             viewController.diver = self.diver
-            print(viewController.diver, self.diver)
         }
     }
 

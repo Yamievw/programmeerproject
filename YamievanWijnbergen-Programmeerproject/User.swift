@@ -19,12 +19,12 @@ class User: NSObject {
     var location: CLLocationCoordinate2D
     
     init(dictionary: [String: Any]) {
-        self.id = dictionary["id"] as? String ?? ""
-        self.name = dictionary["name"] as? String ?? ""
-        self.certificate = dictionary["certificate"] as? String ?? ""
-        self.experience = dictionary["experience"] as? String ?? ""
-        self.dives = dictionary["dives"] as? String ?? ""
-        self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
+        self.id = dictionary["id"] as? String
+        self.name = dictionary["name"] as? String
+        self.certificate = dictionary["certificate"] as? String
+        self.experience = dictionary["experience"] as? String
+        self.dives = dictionary["dives"] as? String
+        self.profileImageUrl = dictionary["profileImageUrl"] as? String
         self.location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
     }
 }

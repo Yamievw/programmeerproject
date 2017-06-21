@@ -55,12 +55,11 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
                 let message = Message(dictionary: dictionary)
                     
                 // Only show messages that belong in that conversation.
-                print("self: \(message.chatPartnerId()) diverId: \(self.diver?.id)")
                 if message.chatPartnerId() == self.diver?.id {
                     self.messages.append(message)
-//                    DispatchQueue.main.async {
+                    DispatchQueue.main.async {
                     self.collectionView.reloadData()
-                    //}
+                    }
                 }
             })
         })
@@ -111,7 +110,6 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MessageCollectionViewCell
         
         let message = messages[indexPath.item]
-        print(message)
         cell.messageText.text = message.text
         
         return cell

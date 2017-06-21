@@ -14,12 +14,13 @@ class Message: NSObject {
     var text: String?
     var timestamp: NSNumber?
     var toId: String?
+    var user: User?
     
     init(dictionary: [String: Any]) {
-        self.fromId = dictionary["fromId"] as? String ?? ""
-        self.text = dictionary["text"] as? String ?? ""
+        self.fromId = dictionary["fromId"] as? String
+        self.text = dictionary["text"] as? String
         //self.timestamp = dictionary["timestamp"] as? NSNumber ?? ""
-        self.toId = dictionary["toId"] as? String ?? ""
+        self.toId = dictionary["toId"] as? String
     }
     
     // Make sure current user doesn't see his own name in message log.
@@ -29,6 +30,10 @@ class Message: NSObject {
         } else {
             return fromId!
         }
+    }
+    
+    init(user: User) {
+        self.user = user
     }
 
 }
