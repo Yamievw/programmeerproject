@@ -45,8 +45,9 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
                 if let dictionary = snapshot.value as? [String:AnyObject] {
                     let message = Message(dictionary: dictionary)
                     
-                    if let toId = message.toId {
-                        self.messagesDict[toId] = message
+                    // Show messages from user and recipient in one same chat.
+                    if let chatPartnerId = message.chatPartnerId() {
+                        self.messagesDict[chatPartnerId] = message
                         
                         self.messages = Array(self.messagesDict.values)
                         self.messages.sort(by: { (message1, message2) -> Bool in
