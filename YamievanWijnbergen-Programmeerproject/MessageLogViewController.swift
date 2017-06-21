@@ -13,7 +13,6 @@ import FirebaseAuth
 class MessageLogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var messages = [Message]()
-    //var message: Message?
     var messagesDict = [String: Message]()
     
     var diver: User?
@@ -103,6 +102,7 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         cell.nameText?.text = message.toId
         cell.messageLabel?.text = message.text
 
+        // Create timestamp.
         if let seconds = message.timestamp?.doubleValue {
             let timestampDate = Date(timeIntervalSince1970: seconds)
             
@@ -134,8 +134,7 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
             self.diver?.id = chatPartnerId
             
             self.performSegue(withIdentifier: "chatInfo", sender: self)
-
-            })
+        })
     }
     
     // Segue to next viewcontroller to get info on specific book
@@ -144,16 +143,6 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
             viewController.diver = self.diver
         }
     }
-
-    
-//    // Delete book from tableview and database.
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let removeBook = books[indexPath.row].id
-//            //removeBook.books_database?.removeValue()
-//        }
-//        self.tableView.reloadData()
-//    }
 }
 
 

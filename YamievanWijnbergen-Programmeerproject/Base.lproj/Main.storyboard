@@ -409,8 +409,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cell" id="Yzv-G2-U48" customClass="MessageCollectionViewCell" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="0.0" width="350" height="61"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellMe" id="Yzv-G2-U48" customClass="MessageCollectionViewCell" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target">
+                                        <rect key="frame" x="12.5" y="0.0" width="350" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
@@ -418,29 +418,56 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fL-54-ti5">
                                                     <rect key="frame" x="146" y="0.0" width="200" height="61"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="O2F-HS-Sfc">
+                                                            <rect key="frame" x="2.5" y="2" width="200" height="57"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.32192448270000001" green="0.59812796899999998" blue="0.76449326309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="O2F-HS-Sfc">
-                                                    <rect key="frame" x="147" y="2" width="200" height="57"/>
-                                                    <color key="backgroundColor" red="0.32192448270000001" green="0.59812796899999998" blue="0.76449326309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="O2F-HS-Sfc" firstAttribute="leading" secondItem="Yzv-G2-U48" secondAttribute="leading" constant="147" id="7eC-ss-SeK"/>
-                                            <constraint firstAttribute="bottom" secondItem="O2F-HS-Sfc" secondAttribute="bottom" constant="2" id="SXw-CE-u7l"/>
                                             <constraint firstAttribute="trailing" secondItem="7fL-54-ti5" secondAttribute="trailing" constant="4" id="UBq-B0-qKf"/>
-                                            <constraint firstItem="O2F-HS-Sfc" firstAttribute="trailing" secondItem="7fL-54-ti5" secondAttribute="trailing" constant="1" id="ixs-Ku-XPE"/>
-                                            <constraint firstItem="O2F-HS-Sfc" firstAttribute="top" secondItem="Yzv-G2-U48" secondAttribute="top" constant="2" id="lXj-8B-0Og"/>
                                             <constraint firstAttribute="bottom" secondItem="7fL-54-ti5" secondAttribute="bottom" id="mR9-5L-Nvk"/>
                                             <constraint firstItem="7fL-54-ti5" firstAttribute="leading" secondItem="Yzv-G2-U48" secondAttribute="leading" constant="146" id="voa-Lc-9Vj"/>
                                             <constraint firstItem="7fL-54-ti5" firstAttribute="top" secondItem="Yzv-G2-U48" secondAttribute="top" id="zEi-1Q-Rkp"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="messageText" destination="O2F-HS-Sfc" id="tMA-sn-WAL"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellYou" id="QIE-oA-aDU" customClass="MessageCollectionViewCell" customModule="YamievanWijnbergen_Programmeerproject" customModuleProvider="target">
+                                        <rect key="frame" x="12.5" y="71" width="350" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJW-JM-7xm">
+                                                    <rect key="frame" x="3" y="0.0" width="200" height="61"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Message" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cZP-P0-4NK">
+                                                            <rect key="frame" x="-1.5" y="2" width="200" height="57"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.91398154149999999" green="0.89379737029999995" blue="0.65914523410000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="messageText" destination="cZP-P0-4NK" id="QwR-6S-ZRo"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

@@ -16,6 +16,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
     @IBOutlet weak var collectionView: UICollectionView!
     
     var messages = [Message]()
+    var message: Message?
     
     var diver: User? {
         didSet {
@@ -102,25 +103,27 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         return true
     }
     
-//    private func estimateFrameForText (text: String) -> CGRect {
-//        let size = CGSize(width: 200, height: 1000)
-//        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-//        
-//        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFontSize(17)], context: nil)
-//    }
-    
     // MARK: Create Collection View.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MessageCollectionViewCell
         
         let message = messages[indexPath.item]
-        cell.messageText.text = message.text
         
-        return cell
+        // Check who sends the message.
+        if message.fromId == Auth.auth().currentUser?.uid {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellMe", for: indexPath) as! MessageCollectionViewCell
+            
+            cell.messageText.text = message.text
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellYou", for: indexPath) as! MessageCollectionViewCell
+            
+            cell.messageText.text = message.text
+            return cell
+        }
     }
 
 }
