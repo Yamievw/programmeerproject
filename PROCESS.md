@@ -43,3 +43,10 @@ De MessageLog werkt. Alleen timestamp lukte niet om erbij te zetten.
 ### 20 juni
 Ik ben verder gegaan met de chatfunctie. Ik heb een nieuwe child in Firebase aangemaakt om per gebruiker de bijbehorde chats te zien. Het lukt om nu via userProfile de berichten te zien. Maar nog niet via chatlog. Timestamp moet ook nogsteeds.
 
+### 21 juni
+Het is vandaag gelukt met de chatfunctie. De cellen zijn dynamisch gebaseerd op de grootte van de text. De timestamp werkt nu ook.
+
+### 22 juni
+Ik heb vandaag LogIn bugs gefixed. En als gebruikers zich registeren met een afbeelding dan wordt deze kleiner gemaakt zodat het laden later niet zo lang duurt.
+
+
