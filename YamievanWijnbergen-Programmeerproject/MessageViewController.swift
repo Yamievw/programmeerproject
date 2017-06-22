@@ -75,7 +75,6 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         
         let toId = diver!.id!
         let fromId = Auth.auth().currentUser!.uid
-        print(toId, fromId)
         let timestamp = NSDate().timeIntervalSince1970
         let values = ["text": inputField.text!, "toId": toId, "fromId": fromId, "timestamp": timestamp] as [String : Any]
         
@@ -123,7 +122,6 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         // Check who sends the message.
         if message.fromId == Auth.auth().currentUser?.uid {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellMe", for: indexPath) as! MessageCollectionViewCell
-            
             cell.messageText.text = message.text
             return cell
         } else {
