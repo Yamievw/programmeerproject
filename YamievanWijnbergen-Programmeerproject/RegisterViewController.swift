@@ -90,6 +90,8 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
                 if Auth.auth().currentUser != nil {
                     self.performSegue(withIdentifier: "registerToMap", sender: self)
                 }
+            } else {
+                self.RegisterFail()
             }
  
             guard let uid = user?.uid else {
@@ -102,7 +104,7 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
             let imageName = NSUUID().uuidString
             let storageRef = Storage.storage().reference().child("\(imageName).png")
             
-            if let uploadData = UIImagePNGRepresentation(self.userImagePicker.image!) {
+            if let uploadData = UIImageJPEGRepresentation(self.userImagePicker.image!, 0.1)! as Data? {
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
@@ -149,5 +151,18 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
             print("Image wasn't selected")
         }
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    // Alert to let user know login failed.
+    func RegisterFail() {
+        let alertcontroller = UIAlertController(title: "Failed to register. ", message: "Fill in all forms. Please, try again.",preferredStyle: UIAlertControllerStyle.alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+        }
+        
+        alertcontroller.addAction(OKAction)
+        self.present(alertcontroller, animated: true, completion:nil)
+        
+        return
     }
 }

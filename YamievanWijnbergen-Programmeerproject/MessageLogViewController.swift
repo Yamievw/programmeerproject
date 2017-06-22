@@ -53,13 +53,17 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
                             return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
                         })
                     }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
+                    Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
+    
                 }
             })
         })
+    }
+    
+    func reloadTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     // Clear table so it only loads conversations that belong to user.

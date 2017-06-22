@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
         // Keep user logged in when closing app.
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
-                self.performSegue(withIdentifier: "loginToMap", sender: nil)
+                self.performSegue(withIdentifier: "stayLoggedIn", sender: nil)
             }
         }
     }
@@ -36,11 +36,11 @@ class LogInViewController: UIViewController {
     @IBAction func loginDidTouch(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error == nil {
-                self.loginFail()
-                
                 if Auth.auth().currentUser != nil {
                     self.performSegue(withIdentifier: "loginToMap", sender: self)
                 }
+            } else {
+                 self.loginFail()
             }
         }
     }

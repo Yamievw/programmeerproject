@@ -14,6 +14,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var sendMessage: UIButton!
     
     var messages = [Message]()
     var message: Message?
@@ -36,7 +37,6 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func observeMessages() {
@@ -75,6 +75,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         
         let toId = diver!.id!
         let fromId = Auth.auth().currentUser!.uid
+        print(toId, fromId)
         let timestamp = NSDate().timeIntervalSince1970
         let values = ["text": inputField.text!, "toId": toId, "fromId": fromId, "timestamp": timestamp] as [String : Any]
         
@@ -93,13 +94,20 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
             let recipientMessagesRef = Database.database().reference().child("user-messages").child(toId)
             recipientMessagesRef.updateChildValues([messageId:1] )
             
+          self.textFieldShouldClear(self.inputField)
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //self.view.endEditing(false)
+        self.view.endEditing(false)
         sendButton(Any)
+        inputField.text = ""
         
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        self.inputField.text = ""
         return true
     }
     
@@ -126,6 +134,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         }
     }
     
+    // Make cell height dynamic based on height textview.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var height: CGFloat = 60
         
