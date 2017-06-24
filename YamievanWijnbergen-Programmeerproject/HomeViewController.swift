@@ -9,9 +9,6 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-//    let locationManager = CLLocationManager()
-//    var currentLocation: CLLocation!
 
     override func viewDidLoad() {
         super.viewDidLoad()

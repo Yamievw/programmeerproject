@@ -33,7 +33,6 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
 
     
     func observeUserMessages() {
-        
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -56,7 +55,7 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
                             return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
                         })
                     }
-                    // Reload tableview in 0.1 second.
+                    // Reload tableview in 0.5 seconds.
                     Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
     
                 }
@@ -107,7 +106,6 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
             })
         }
         
-        cell.nameText?.text = message.toId
         cell.messageLabel?.text = message.text
 
         // Create timestamp.
@@ -145,7 +143,7 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         })
     }
     
-    // Segue to next viewcontroller to get info on specific book
+    // Prepare for segue to next viewcontroller to go to chat.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? MessageViewController {
             viewController.diver = self.diver

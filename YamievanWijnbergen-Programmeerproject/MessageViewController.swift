@@ -32,58 +32,48 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
 
         self.inputField.delegate = self
-         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
     }
     
+    // Make sure user can go back to previous viewcontroller.
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         super.viewWillDisappear(animated)
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(false)
-        sendButton(Any)
-        inputField.text = ""
-        
-        return true
+    
+    // Start Editing The Text Field
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -210, up: true)
     }
     
-    func animateTextField(textField: UITextField, up: Bool)
-    {
-        let movementDistance:CGFloat = -130
-        let movementDuration: Double = 0.3
+    // Finish Editing The Text Field
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -210, up: false)
+    }
+    
+    // Move the text field up when editing textfield.
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
         
-        var movement:CGFloat = 0
-        if up
-        {
-            movement = movementDistance
-        }
-        else
-        {
-            movement = -movementDistance
-        }
-        UICollectionView.beginAnimations("animateTextField", context: nil)
-        UICollectionView.setAnimationBeginsFromCurrentState(true)
-        UICollectionView.setAnimationDuration(movementDuration)
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UICollectionView.commitAnimations()
+        UIView.commitAnimations()
     }
     
-    
-    func textFieldDidBeginEditing(_ textField: UITextField)
-    {
-        self.animateTextField(textField: textField, up:true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField)
-    {
-        self.animateTextField(textField: textField, up:false)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        //sendButton(Any)
+        //inputField.text = ""
+        
+        return false
     }
     
     func observeMessages() {
@@ -140,7 +130,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
             let recipientMessagesRef = Database.database().reference().child("user-messages").child(toId)
             recipientMessagesRef.updateChildValues([messageId:1] )
             
-          self.textFieldShouldClear(self.inputField)
+            self.textFieldShouldClear(self.inputField)
         }
     }
         
@@ -169,6 +159,10 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
             cell.messageText.text = message.text
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        view.endEditing(true)
     }
     
     // Make cell height dynamic based on height textview.

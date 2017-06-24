@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -356,17 +358,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Send Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEx-17-pmL">
-                                <rect key="frame" x="16" y="611" width="132" height="36"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Send Message" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KEx-17-pmL">
+                                <rect key="frame" x="16" y="609" width="303" height="36"/>
+                                <color key="backgroundColor" red="0.91398154149999999" green="0.91398154149999999" blue="0.91398154149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4O-du-p6c">
-                                <rect key="frame" x="327" y="617" width="43" height="30"/>
+                                <rect key="frame" x="327" y="609" width="43" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="nYp-VW-GmD"/>
+                                    <constraint firstAttribute="width" constant="43" id="P1a-0R-XFq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Send"/>
@@ -469,16 +471,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="u4O-du-p6c" firstAttribute="bottom" secondItem="KEx-17-pmL" secondAttribute="bottom" id="0XJ-Gt-hm4"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="KEx-17-pmL" secondAttribute="bottom" constant="22" id="0e3-ep-7wA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UyA-Pg-w1F" secondAttribute="trailing" constant="-16" id="319-5r-tIZ"/>
+                            <constraint firstItem="u4O-du-p6c" firstAttribute="baseline" secondItem="KEx-17-pmL" secondAttribute="firstBaseline" id="Fa5-yf-EVP"/>
+                            <constraint firstItem="u4O-du-p6c" firstAttribute="top" secondItem="KEx-17-pmL" secondAttribute="top" id="GMw-3f-ovb"/>
+                            <constraint firstItem="KEx-17-pmL" firstAttribute="leading" secondItem="eLT-gP-zgj" secondAttribute="leadingMargin" id="HnC-wV-DJM"/>
+                            <constraint firstItem="u4O-du-p6c" firstAttribute="leading" secondItem="KEx-17-pmL" secondAttribute="trailing" constant="8" symbolic="YES" id="Nco-k1-KON"/>
                             <constraint firstItem="wDP-14-QWG" firstAttribute="top" secondItem="UyA-Pg-w1F" secondAttribute="bottom" constant="49" id="Ngl-X4-vX0"/>
-                            <constraint firstItem="u4O-du-p6c" firstAttribute="bottom" secondItem="KEx-17-pmL" secondAttribute="bottom" id="UuQ-fv-V7i"/>
-                            <constraint firstItem="KEx-17-pmL" firstAttribute="leading" secondItem="eLT-gP-zgj" secondAttribute="leadingMargin" id="Z8S-oV-cY1"/>
-                            <constraint firstItem="u4O-du-p6c" firstAttribute="top" secondItem="UyA-Pg-w1F" secondAttribute="bottom" constant="48" id="f4s-WR-YQu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="u4O-du-p6c" secondAttribute="trailing" constant="-11" id="jln-uU-4vs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u4O-du-p6c" secondAttribute="trailing" constant="-11" id="T1w-J0-dOS"/>
                             <constraint firstItem="UyA-Pg-w1F" firstAttribute="top" secondItem="k7n-zc-Weu" secondAttribute="bottom" constant="8" id="mQu-xB-dal"/>
+                            <constraint firstItem="u4O-du-p6c" firstAttribute="firstBaseline" secondItem="KEx-17-pmL" secondAttribute="baseline" id="n2a-rg-6RM"/>
                             <constraint firstItem="UyA-Pg-w1F" firstAttribute="centerX" secondItem="eLT-gP-zgj" secondAttribute="centerX" id="pch-8O-sX6"/>
-                            <constraint firstAttribute="bottom" secondItem="KEx-17-pmL" secondAttribute="bottom" constant="20" symbolic="YES" id="ujN-QF-QPK"/>
-                            <constraint firstItem="KEx-17-pmL" firstAttribute="top" secondItem="UyA-Pg-w1F" secondAttribute="bottom" constant="42" id="vFj-Xm-FVb"/>
+                            <constraint firstItem="KEx-17-pmL" firstAttribute="top" secondItem="UyA-Pg-w1F" secondAttribute="bottom" constant="40" id="raZ-Qx-5As"/>
+                            <constraint firstItem="u4O-du-p6c" firstAttribute="baseline" secondItem="KEx-17-pmL" secondAttribute="baseline" id="tSw-33-yFx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="buh-Tj-d7s"/>

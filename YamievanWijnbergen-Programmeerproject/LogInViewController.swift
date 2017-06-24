@@ -26,11 +26,6 @@ class LogInViewController: UIViewController {
             }
         }
     }
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        navigationController?.isNavigationBarHidden = true
-//        super.viewWillDisappear(animated)
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
