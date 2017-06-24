@@ -60,6 +60,11 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
         locationAuthStatus()
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.isNavigationBarHidden = true
+//        super.viewWillDisappear(animated)
+//    }
+    
     // Make keyboard dissapear after hitting Return button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

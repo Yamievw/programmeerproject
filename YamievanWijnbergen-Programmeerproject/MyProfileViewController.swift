@@ -24,6 +24,7 @@ class MyProfileViewController: UIViewController {
         super.viewDidLoad()
         
         getUserDetails()
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {

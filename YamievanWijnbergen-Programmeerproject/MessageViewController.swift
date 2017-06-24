@@ -32,11 +32,58 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
 
         self.inputField.delegate = self
+         navigationController?.navigationBar.isHidden = false
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        super.viewWillDisappear(animated)
+    }
+    
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(false)
+        sendButton(Any)
+        inputField.text = ""
+        
+        return true
+    }
+    
+    func animateTextField(textField: UITextField, up: Bool)
+    {
+        let movementDistance:CGFloat = -130
+        let movementDuration: Double = 0.3
+        
+        var movement:CGFloat = 0
+        if up
+        {
+            movement = movementDistance
+        }
+        else
+        {
+            movement = -movementDistance
+        }
+        UICollectionView.beginAnimations("animateTextField", context: nil)
+        UICollectionView.setAnimationBeginsFromCurrentState(true)
+        UICollectionView.setAnimationDuration(movementDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UICollectionView.commitAnimations()
+    }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        self.animateTextField(textField: textField, up:true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        self.animateTextField(textField: textField, up:false)
     }
     
     func observeMessages() {
@@ -96,15 +143,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
           self.textFieldShouldClear(self.inputField)
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(false)
-        sendButton(Any)
-        inputField.text = ""
         
-        return true
-    }
-    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         self.inputField.text = ""
         return true

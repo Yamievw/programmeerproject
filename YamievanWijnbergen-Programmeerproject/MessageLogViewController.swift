@@ -21,13 +21,16 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         clearTable()
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
     
     func observeUserMessages() {
         
@@ -53,7 +56,8 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
                             return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
                         })
                     }
-                    Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
+                    // Reload tableview in 0.1 second.
+                    Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
     
                 }
             })

@@ -28,6 +28,7 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
         mapView.isZoomEnabled = true
 
         getUserLocations()
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {

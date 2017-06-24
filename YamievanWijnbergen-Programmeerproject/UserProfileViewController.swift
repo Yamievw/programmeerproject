@@ -25,11 +25,17 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
 
         updateDiver()
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = diver?.name!
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        super.viewWillDisappear(animated)
     }
     
     func updateDiver() {
