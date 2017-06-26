@@ -70,17 +70,15 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //sendButton(Any)
-        //inputField.text = ""
         
         return false
     }
     
     func observeMessages() {
-        guard let uid = Auth.auth().currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid, let toId = diver?.id else {
             return
         }
-        let userMessageref = Database.database().reference().child("user-messages").child(uid)
+        let userMessageref = Database.database().reference().child("user-messages").child(uid).child(toId)
         userMessageref.observe(.childAdded, with: { (snapshot) in
             
             let messageId = snapshot.key
@@ -96,8 +94,13 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
                 // Only show messages that belong in that conversation.
                 if message.chatPartnerId() == self.diver?.id {
                     self.messages.append(message)
+                    
                     DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                        //scroll to the last index
+                        let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
+                        self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
+
                     }
                 }
             })
@@ -121,22 +124,17 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
                 return
             }
             
-            let userMessagseRef = Database.database().reference().child("user-messages").child(fromId)
+            self.inputField.text = nil
+            
+            let userMessagseRef = Database.database().reference().child("user-messages").child(fromId).child(toId)
             
             let messageId = childRef.key
             userMessagseRef.updateChildValues([messageId: 1])
             
             // Store message also in database for recipient
-            let recipientMessagesRef = Database.database().reference().child("user-messages").child(toId)
+            let recipientMessagesRef = Database.database().reference().child("user-messages").child(toId).child(fromId)
             recipientMessagesRef.updateChildValues([messageId:1] )
-            
-            self.textFieldShouldClear(self.inputField)
         }
-    }
-        
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        self.inputField.text = ""
-        return true
     }
     
     // MARK: Create Collection View.
@@ -172,7 +170,6 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         if let text = messages[indexPath.item].text {
             height = estimateFrameForText(text).height + 30
         }
-        
         return CGSize(width: view.frame.width, height: height)
     }
     

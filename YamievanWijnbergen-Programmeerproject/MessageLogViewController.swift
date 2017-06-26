@@ -17,6 +17,8 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     
     var diver: User?
     
+    var timer: Timer?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -30,43 +32,112 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         super.didReceiveMemoryWarning()
     }
     
-
-    
     func observeUserMessages() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
+        print("HEHE1")
         let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
+            print("HEHE2")
             
-            let messageId = snapshot.key
-            let messagesReference = Database.database().reference().child("Messages").child(messageId)
-            
-            messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String:AnyObject] {
-                    let message = Message(dictionary: dictionary)
-                    
-                    // Show messages from user and recipient in one same chat.
-                    if let chatPartnerId = message.chatPartnerId() {
-                        self.messagesDict[chatPartnerId] = message
-                        
-                        self.messages = Array(self.messagesDict.values)
-                        self.messages.sort(by: { (message1, message2) -> Bool in
-                            return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
-                        })
-                    }
-                    // Reload tableview in 0.5 seconds.
-                    Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.reloadTable), userInfo: nil, repeats: false)
-    
-                }
+            let userId = snapshot.key
+            Database.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot) in
+                print("HEHE3")
+                let messageId = snapshot.key
+                self.fetchMessageWithMessageId(messageId)
+                print("HEHE4")
+                self.attemptReloadTable()
+                print("HEHE5")
             })
+//            self.attemptReloadTable()
+        })
+//
+//        ref.observe(.childRemoved, with: { (snapshot) in
+//            print(snapshot.key)
+//            print(self.messagesDict)
+//            
+//            self.messagesDict.removeValue(forKey: snapshot.key)
+//            self.attemptReloadTable()
+//        })
+//
+//            
+//            
+//                
+//            
+//            let messageId = snapshot.key
+//            let messagesReference = Database.database().reference().child("Messages").child(messageId)
+//            
+//            messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let dictionary = snapshot.value as? [String:AnyObject] {
+//                    let message = Message(dictionary: dictionary)
+//                    
+//                    // Show messages from user and recipient in one same chat.
+//                    if let chatPartnerId = message.chatPartnerId() {
+//                        self.messagesDict[chatPartnerId] = message
+//                        
+//                        self.messages = Array(self.messagesDict.values)
+//                        self.messages.sort(by: { (message1, message2) -> Bool in
+//                            return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
+//                        })
+//                    }
+//                    
+//            messagesReference.observe(.childRemoved, with: { (snapshot) in
+//                print(snapshot.key)
+//                print(self.messagesDict)
+//                        
+//                self.messagesDict.removeValue(forKey: snapshot.key)
+//                self.attemptReloadTable()
+//                print("TEST1")
+//                    })
+//                    self.attemptReloadTable()
+//                    print("TEST2")
+//                    //})
+//                //}
+//                }
+//                self.attemptReloadTable()
+//                print("TEST3")
+//            })
+//        })
+    }
+    
+    func fetchMessageWithMessageId(_ messageId: String) {
+        let messagesReference = Database.database().reference().child("Messages").child(messageId)
+        
+        messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("HEHE6")
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let message = Message(dictionary: dictionary)
+                print("HEHE7")
+                
+                if let chatPartnerId = message.chatPartnerId() {
+                    self.messagesDict[chatPartnerId] = message
+                }
+                print("HEHE8")
+                self.attemptReloadTable()
+                print("HEHE9")
+            }
         })
     }
     
-    func reloadTable() {
-        DispatchQueue.main.async {
+    // Reload tableview in 0.1 seconds.
+    func attemptReloadTable() {
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+    }
+    
+    func handleReloadTable() {
+        self.messages = Array(self.messagesDict.values)
+        self.messages.sort(by: { (message1, message2) -> Bool in
+            
+            return (message1.timestamp?.int32Value)! > (message2.timestamp?.int32Value)!
+        })
+        
+        DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
-        }
+        })
+
     }
     
     // Clear table so it only loads conversations that belong to user.
@@ -120,6 +191,36 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let message = self.messages[indexPath.row]
+        
+        
+        
+        if let chatPartnerId = message.chatPartnerId() {
+            Database.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
+                
+                if error != nil {
+                    print("Failed to delete message:", error!)
+                    return
+                }
+                
+//                self.messagesDict.removeValue(forKey: chatPartnerId)
+//                self.attemptReloadTable()
+                self.messages.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
+        }
+    }
+    
     // Segue to chatInfo with matching conversation.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let message = messages[indexPath.row]
@@ -140,6 +241,7 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
             self.diver?.id = chatPartnerId
             
             self.performSegue(withIdentifier: "chatInfo", sender: self)
+            
         })
     }
     
@@ -149,6 +251,7 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
             viewController.diver = self.diver
         }
     }
+    
 }
 
 
