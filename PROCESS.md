@@ -49,4 +49,17 @@ Het is vandaag gelukt met de chatfunctie. De cellen zijn dynamisch gebaseerd op 
 ### 22 juni
 Ik heb vandaag LogIn bugs gefixed. En als gebruikers zich registeren met een afbeelding dan wordt deze kleiner gemaakt zodat het laden later niet zo lang duurt.
 
+### 23 juni
+Ik ben vandaag bezig geweest met de navigation controller zodat de gebruiker niet back kan gaan naar LogIn. Dit is alleen nog niet gelukt. Ook heb ik een poging gedaan zodat de keyboard niet de inputfield in de chat blokkeerd. Dit is ook niet gelukt.
+
+### 24 juni
+Het is gelukt met de navigationcontroller. De gebruiker kan nu alleen nog maar terug naar het vorige scherm vanuit Userprofile en Message.
+
+### 25 juni
+Ik ben bezig geweest met de Delete-functie vandaag. Het lukt niet om deze werkend te krijgen.
+
+## Week 4
+### 26 juni
+Het deleten van chats werkt. Ik heb gefixed dat de gebruiker geen lege berichtjes kan sturen. Ik heb nog een bug gevonden met de navigationcontroller, deze krijg ik er nog niet uit.
+
 
