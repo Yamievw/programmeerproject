@@ -36,87 +36,32 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        print("HEHE1")
+        
         let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
-            print("HEHE2")
             
             let userId = snapshot.key
             Database.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot) in
-                print("HEHE3")
                 let messageId = snapshot.key
+                
                 self.fetchMessageWithMessageId(messageId)
-                print("HEHE4")
                 self.attemptReloadTable()
-                print("HEHE5")
             })
-//            self.attemptReloadTable()
         })
-//
-//        ref.observe(.childRemoved, with: { (snapshot) in
-//            print(snapshot.key)
-//            print(self.messagesDict)
-//            
-//            self.messagesDict.removeValue(forKey: snapshot.key)
-//            self.attemptReloadTable()
-//        })
-//
-//            
-//            
-//                
-//            
-//            let messageId = snapshot.key
-//            let messagesReference = Database.database().reference().child("Messages").child(messageId)
-//            
-//            messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
-//                if let dictionary = snapshot.value as? [String:AnyObject] {
-//                    let message = Message(dictionary: dictionary)
-//                    
-//                    // Show messages from user and recipient in one same chat.
-//                    if let chatPartnerId = message.chatPartnerId() {
-//                        self.messagesDict[chatPartnerId] = message
-//                        
-//                        self.messages = Array(self.messagesDict.values)
-//                        self.messages.sort(by: { (message1, message2) -> Bool in
-//                            return (message1.timestamp?.intValue)! > (message2.timestamp?.intValue)!
-//                        })
-//                    }
-//                    
-//            messagesReference.observe(.childRemoved, with: { (snapshot) in
-//                print(snapshot.key)
-//                print(self.messagesDict)
-//                        
-//                self.messagesDict.removeValue(forKey: snapshot.key)
-//                self.attemptReloadTable()
-//                print("TEST1")
-//                    })
-//                    self.attemptReloadTable()
-//                    print("TEST2")
-//                    //})
-//                //}
-//                }
-//                self.attemptReloadTable()
-//                print("TEST3")
-//            })
-//        })
     }
     
     func fetchMessageWithMessageId(_ messageId: String) {
         let messagesReference = Database.database().reference().child("Messages").child(messageId)
         
         messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("HEHE6")
-            
+ 
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let message = Message(dictionary: dictionary)
-                print("HEHE7")
                 
                 if let chatPartnerId = message.chatPartnerId() {
                     self.messagesDict[chatPartnerId] = message
                 }
-                print("HEHE8")
                 self.attemptReloadTable()
-                print("HEHE9")
             }
         })
     }
@@ -213,10 +158,8 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
                     return
                 }
                 
-//                self.messagesDict.removeValue(forKey: chatPartnerId)
-//                self.attemptReloadTable()
-                self.messages.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.messagesDict.removeValue(forKey: chatPartnerId)
+                self.attemptReloadTable()
             })
         }
     }

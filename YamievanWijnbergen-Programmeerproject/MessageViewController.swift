@@ -97,10 +97,10 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
                     
                     DispatchQueue.main.async {
                     self.collectionView.reloadData()
-                        //scroll to the last index
+                        
+                        // Scroll to the last message in chat.
                         let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
                         self.collectionView?.scrollToItem(at: indexPath, at: .bottom, animated: true)
-
                     }
                 }
             })
@@ -117,6 +117,10 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         let fromId = Auth.auth().currentUser!.uid
         let timestamp = NSDate().timeIntervalSince1970
         let values = ["text": inputField.text!, "toId": toId, "fromId": fromId, "timestamp": timestamp] as [String : Any]
+        
+        if inputField.text?.isEmpty == true {
+            return
+        }
         
         childRef.updateChildValues(values) { (error, ref) in
             if error != nil {
