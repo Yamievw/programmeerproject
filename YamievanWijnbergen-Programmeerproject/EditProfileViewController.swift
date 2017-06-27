@@ -52,6 +52,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
+    // Make sure user can go back to previous viewcontroller.
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        super.viewWillDisappear(animated)
+    }
+
+    
     // Make keyboard dissapear after hitting Return button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -132,7 +139,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
     @IBAction func saveData(_ sender: Any) {
         self.updateProfile()
+        
+//        self.performSegue(withIdentifier: "afterEdit", sender: nil)
     }
+    
+//    // Segue to next viewcontroller to get info on specific book
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let viewController = segue.destination as? MyProfileViewController {
+//            getUserDetails()
+//        }
+//    }
+
     
     // Select imageView.
     @IBAction func selectedImagePicker(_ sender: Any) {
@@ -151,17 +168,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
-    
-    // Alert to let user know login failed.
-    func editSuccesful() {
-        let alertcontroller = UIAlertController(title: "Successfully edited profile. ", message: "Your profile has been edited.",preferredStyle: UIAlertControllerStyle.alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-        }
-        
-        alertcontroller.addAction(OKAction)
-        self.present(alertcontroller, animated: true, completion:nil)
-        
-        return
-    }
+//    
+//    // Alert to let user know login failed.
+//    func editSuccesful() {
+//        let alertcontroller = UIAlertController(title: "Successfully edited profile. ", message: "Your profile has been edited.",preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+//        }
+//        
+//        alertcontroller.addAction(OKAction)
+//        self.present(alertcontroller, animated: true, completion:nil)
+//        
+//        return
+//    }
 }

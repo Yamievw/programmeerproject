@@ -32,16 +32,26 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
 
         self.inputField.delegate = self
-        
-        //navigationController?.viewControllers.count
+
         navigationController?.navigationBar.isHidden = false
+        
     }
     
-//    // Make sure user can go back to previous viewcontroller.
-//    override func viewWillDisappear(_ animated: Bool) {
-//        navigationController?.navigationBar.isHidden = true
-//        super.viewWillDisappear(animated)
-//    }
+    // Make sure user can go back to previous viewcontroller.
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        var counter = navigationController?.viewControllers.count
+        
+        if counter == 3 {
+            print("TEST")
+            navigationController?.navigationBar.isHidden = true
+        }
+        if counter == 4 {
+            print("TESTTTT")
+            navigationController?.navigationBar.isHidden = false
+        }
+        super.viewWillDisappear(animated)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

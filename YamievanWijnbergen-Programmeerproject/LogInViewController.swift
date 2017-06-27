@@ -18,11 +18,7 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            
-//        }
+
         // Keep user logged in when closing app.
         Auth.auth().addStateDidChangeListener() { auth, user in
             if user != nil {
