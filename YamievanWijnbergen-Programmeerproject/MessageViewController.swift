@@ -35,11 +35,11 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         navigationController?.navigationBar.isHidden = false
     }
     
-    // Make sure user can go back to previous viewcontroller.
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
-        super.viewWillDisappear(animated)
-    }
+//    // Make sure user can go back to previous viewcontroller.
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.navigationBar.isHidden = true
+//        super.viewWillDisappear(animated)
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -118,6 +118,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         let timestamp = NSDate().timeIntervalSince1970
         let values = ["text": inputField.text!, "toId": toId, "fromId": fromId, "timestamp": timestamp] as [String : Any]
         
+        // User can't send empty messages.
         if inputField.text?.isEmpty == true {
             return
         }
@@ -181,5 +182,14 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "sendMessage") {
+            viewWillDisappear(true)
+                   }
+        if (segue.identifier == "chatInfo") {
+            viewWillDisappear(false)
+        }
     }
 }

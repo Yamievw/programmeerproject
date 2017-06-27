@@ -21,6 +21,8 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var NoMessages: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,6 +102,12 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if messages.count == 0 {
+            NoMessages.isHidden = false
+        } else {
+            NoMessages.isHidden = true
+        }
+        
         return messages.count
     }
     

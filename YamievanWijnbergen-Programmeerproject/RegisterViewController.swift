@@ -155,7 +155,7 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
     
     // Alert to let user know login failed.
     func RegisterFail() {
-        let alertcontroller = UIAlertController(title: "Failed to register. ", message: "Fill in all forms. Please, try again.",preferredStyle: UIAlertControllerStyle.alert)
+        let alertcontroller = UIAlertController(title: "Failed to register. ", message: "Please, try again.",preferredStyle: UIAlertControllerStyle.alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
         }
