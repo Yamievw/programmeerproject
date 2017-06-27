@@ -48,7 +48,7 @@ class DiversMapViewController: UIViewController, MKMapViewDelegate {
     func getUserLocations() {
         Database.database().reference().child("Userinfo").observe(.childAdded, with: { (snapshot) in
             let dictionary = snapshot.value as! [String: Any]
-            let location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
+//            let location = CLLocationCoordinate2D(latitude: dictionary["latitude"] as! Double, longitude: dictionary["longitude"] as! Double)
             let user = User(dictionary: dictionary)
             let diversss = Annotation(user: user)
             user.id = snapshot.key

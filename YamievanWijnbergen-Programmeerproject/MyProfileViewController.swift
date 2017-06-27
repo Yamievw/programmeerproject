@@ -14,7 +14,6 @@ class MyProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var myNameText: UITextView!
-
     @IBOutlet weak var myCertificateText: UITextView!
     @IBOutlet weak var myExperience: UILabel!
     @IBOutlet weak var myDives: UILabel!

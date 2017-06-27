@@ -32,6 +32,8 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
 
         self.inputField.delegate = self
+        
+        //navigationController?.viewControllers.count
         navigationController?.navigationBar.isHidden = false
     }
     
