@@ -62,4 +62,7 @@ Ik ben bezig geweest met de Delete-functie vandaag. Het lukt niet om deze werken
 ### 26 juni
 Het deleten van chats werkt. Ik heb gefixed dat de gebruiker geen lege berichtjes kan sturen. Ik heb nog een bug gevonden met de navigationcontroller, deze krijg ik er nog niet uit.
 
+### 27 juni
+Ik heb vandaag eraan gewerkt dat de app op alle schermformaten werkt. Het aanpassen van je profiel werkt ook. Het is alleen nog niet gelukt om meteen een segue te creeeren die teruggaat naar je profiel met meteen de aanpassingen erin (je moet nu eerst uitloggen en inloggen om de wijzigingen te zien). De navigatie-bug is ook gefixed.
+
 
