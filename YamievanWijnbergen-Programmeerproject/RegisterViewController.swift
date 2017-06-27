@@ -69,9 +69,9 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
     // Get location authorization status.
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation = locationManager.location
-            print(currentLocation.coordinate.latitude)
-            print(currentLocation.coordinate.longitude)
+//            currentLocation = locationManager.location
+//            print(currentLocation.coordinate.latitude)
+//            print(currentLocation.coordinate.longitude)
         }
         else {
             locationManager.requestWhenInUseAuthorization()
