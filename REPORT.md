@@ -3,7 +3,8 @@ Door: Yamie van Wijnbergen
 
 ## App beschrijving
 Een belangrijke regel bij het duiken is dat je beter nooit alleen kan duiken. Deze app is hier de oplossing voor. Deze app is een oplossing voor mensen die duiken, die geen andere duikers kennen maar toch niet het risico willen nemen om alleen te duiken. Het doel van DiveBuddy is om duikers met elkaar in contact te brengen, zodat ze op die manier een buddy kunnen vinden om mee te duiken. De gebruiker kan andere duikers vinden op een gewenste locatie en diegene meteen een berichtje sturen om een afspraak te maken.
-![screenshot](screenshot3.jpg "Screenshot") ![screenshot](screenshot4.jpg "Screenshot")
+![screenshot](screenshot3.jpg "Screenshot") 
+![screenshot](screenshot4.jpg "Screenshot")
 
 ## Technical design
 ### 1.Classes
@@ -16,7 +17,7 @@ Deze klasse bevat de titel en subtitel voor een Annotation View op een bepaalde 
 ![screenshot](annotation.png "Screenshot")
 
 #### 1.3 Message
-Deze klasse bevat alle onderdelen nodig om een bericht te identificeren van wie het is, naar wie het is, wanneer het verzonden is en het bericht zelf.
+Deze klasse bevat alle onderdelen nodig om een bericht te identificeren van wie het is, naar wie het is, wanneer het verzonden is en het berichtje zelf.
 ![screenshot](message.png "Screenshot")
 
 ### 2.Controllers
