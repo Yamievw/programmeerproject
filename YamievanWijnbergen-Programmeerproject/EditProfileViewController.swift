@@ -82,8 +82,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
                         
                         let values = ["name": self.nameField.text!,  "certificate": self.certificateField.text!, "experience": self.experienceField.text!, "dives": self.amountdivesField.text!, "profileImageUrl": profileImageUrl] as [String : AnyObject]
-                        print(userId)
-                        print(self.ref)
                         
                         self.updateUserInDatabase(uid: userId, values: values)
 
@@ -136,20 +134,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             })
         }
     }
-
+    
     @IBAction func saveData(_ sender: Any) {
-        self.updateProfile()
-        
-//        self.performSegue(withIdentifier: "afterEdit", sender: nil)
+        //self.updateProfile()
+        self.performSegue(withIdentifier: "afterEdit", sender: nil)
     }
     
-//    // Segue to next viewcontroller to get info on specific book
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let viewController = segue.destination as? MyProfileViewController {
-//            getUserDetails()
-//        }
-//    }
-
+    
+    //Segue to next viewcontroller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.updateProfile()
+    }
     
     // Select imageView.
     @IBAction func selectedImagePicker(_ sender: Any) {
@@ -168,17 +163,4 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
-//    
-//    // Alert to let user know login failed.
-//    func editSuccesful() {
-//        let alertcontroller = UIAlertController(title: "Successfully edited profile. ", message: "Your profile has been edited.",preferredStyle: UIAlertControllerStyle.alert)
-//        
-//        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-//        }
-//        
-//        alertcontroller.addAction(OKAction)
-//        self.present(alertcontroller, animated: true, completion:nil)
-//        
-//        return
-//    }
 }

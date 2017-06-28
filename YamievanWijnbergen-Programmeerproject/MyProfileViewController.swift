@@ -18,12 +18,26 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var myExperience: UILabel!
     @IBOutlet weak var myDives: UILabel!
     
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        //        self.updateProfile()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getUserDetails()
+        //getUserDetails()
         navigationController?.navigationBar.isHidden = true
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getUserDetails()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUserDetails()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +76,7 @@ class MyProfileViewController: UIViewController {
             })
         }
     }
+    
     
     // Function to log user out.
     @IBAction func logoutDidTouch(_ sender: Any) {

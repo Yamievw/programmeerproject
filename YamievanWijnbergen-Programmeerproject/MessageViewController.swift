@@ -43,11 +43,9 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         var counter = navigationController?.viewControllers.count
         
         if counter == 3 {
-            print("TEST")
             navigationController?.navigationBar.isHidden = true
         }
         if counter == 4 {
-            print("TESTTTT")
             navigationController?.navigationBar.isHidden = false
         }
         super.viewWillDisappear(animated)

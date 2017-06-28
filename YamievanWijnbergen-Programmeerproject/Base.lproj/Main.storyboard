@@ -997,7 +997,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveData:" destination="LRZ-3j-BS2" eventType="touchUpInside" id="XUk-Gs-A74"/>
+                                    <action selector="saveData:" destination="LRZ-3j-BS2" eventType="touchUpInside" id="u5w-Lb-6AX"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kxp-5u-akq">
@@ -1038,12 +1038,13 @@
                         <outlet property="experienceField" destination="MfH-52-8Yp" id="92O-fE-4ws"/>
                         <outlet property="nameField" destination="fJs-vW-jZG" id="7ij-z3-wy9"/>
                         <outlet property="userImagePicker" destination="kxp-5u-akq" id="sdi-EV-5pe"/>
-                        <segue destination="t8e-Na-vEO" kind="show" identifier="afterEdit" id="y0o-nd-eJl"/>
+                        <segue destination="dmX-K3-7Wb" kind="unwind" identifier="afterEdit" unwindAction="unwindWithSegue:" id="5vx-zE-ql4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7v-d2-AuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dmX-K3-7Wb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1149.5999999999999" y="3328.785607196402"/>
+            <point key="canvasLocation" x="1150" y="3573"/>
         </scene>
     </scenes>
     <resources>
@@ -1055,9 +1056,8 @@
         <image name="self_rescue_scuba_diving_dive_hacks_scd0417" width="596" height="859"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y0o-nd-eJl"/>
-        <segue reference="Y0k-sb-hJv"/>
         <segue reference="sxo-mz-91G"/>
+        <segue reference="Y0k-sb-hJv"/>
         <segue reference="bPt-Id-iAX"/>
     </inferredMetricsTieBreakers>
 </document>

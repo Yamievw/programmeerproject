@@ -20,7 +20,6 @@ class MessageLogViewController: UIViewController, UITableViewDataSource, UITable
     var timer: Timer?
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var NoMessages: UILabel!
     
     override func viewDidLoad() {
