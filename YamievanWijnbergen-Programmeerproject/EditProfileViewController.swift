@@ -30,7 +30,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(afterEdit), name: Notification.Name("afterEdit"), object: nil)
+        
         navigationController?.navigationBar.isHidden = false
 
         // Get Profile Image.
@@ -90,11 +90,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
     }
-
-    func afterEdit() {
-        print("afterEdit")
-        self.performSegue(withIdentifier: "afterEdit", sender: nil)
-    }
     
     // Setup Firebase Database.
     private func updateUserInDatabase(uid: String, values: [String: AnyObject]){
@@ -106,7 +101,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 print("Error")
                 return
             }
-            NotificationCenter.default.post(name: Notification.Name("afterEdit"), object: nil)
+            self.performSegue(withIdentifier: "afterEdit", sender: nil)
             print("User is succesfully saved to Firebase database")
         })
     }
@@ -143,15 +138,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func saveData(_ sender: Any) {
         self.updateProfile()
-//        self.performSegue(withIdentifier: "afterEdit", sender: nil)
     }
-    
-    
-    //Segue to next viewcontroller
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        self.updateProfile()
-    }
-    
+
     // Select imageView.
     @IBAction func selectedImagePicker(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)

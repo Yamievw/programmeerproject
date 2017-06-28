@@ -18,31 +18,22 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var myExperience: UILabel!
     @IBOutlet weak var myDives: UILabel!
     
-    @IBAction func unwind(segue: UIStoryboardSegue) {
-        //        self.updateProfile()
+    @IBAction func unwindToProfile(segue: UIStoryboardSegue) {
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //getUserDetails()
+
         navigationController?.navigationBar.isHidden = true
-        
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
         getUserDetails()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getUserDetails()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Function to get details of current user displayed on profile.
@@ -90,7 +81,8 @@ class MyProfileViewController: UIViewController {
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }
-            self.performSegue(withIdentifier: "logout", sender: nil)
+            
+            self.performSegue(withIdentifier: "logOut", sender: nil)
             
         }
         let cancelAction = UIAlertAction(title: "Nope!", style: .default)

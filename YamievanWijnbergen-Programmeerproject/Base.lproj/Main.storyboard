@@ -183,9 +183,6 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutDidTouch:" destination="t8e-Na-vEO" eventType="touchUpInside" id="1EC-wE-Hdc"/>
-                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" identifier="logout" popoverAnchorView="xWD-sg-5u7" id="Y0k-sb-hJv">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzW-Ns-XDK">
@@ -251,9 +248,11 @@
                         <outlet property="myExperience" destination="Lam-jj-vTN" id="PpY-Yk-Ih2"/>
                         <outlet property="myNameText" destination="Xcp-HR-Y52" id="fU7-IX-6Po"/>
                         <outlet property="profileImage" destination="T14-0d-1bx" id="Yo9-Ca-d6e"/>
+                        <segue destination="axO-Pr-RA2" kind="unwind" identifier="logOut" unwindAction="unwindToHomescreenWithSegue:" id="YVC-HS-Jyz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiH-Tb-rLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="axO-Pr-RA2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1149.5999999999999" y="2578.5607196401802"/>
         </scene>
@@ -270,7 +269,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="grf-YF-vRI">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
                                 <color key="backgroundColor" red="0.62552978989999997" green="0.77707876129999998" blue="0.82363180049999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <label key="tableHeaderView" hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any chats yet." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ANb-jW-HUh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1038,7 +1037,7 @@
                         <outlet property="experienceField" destination="MfH-52-8Yp" id="92O-fE-4ws"/>
                         <outlet property="nameField" destination="fJs-vW-jZG" id="7ij-z3-wy9"/>
                         <outlet property="userImagePicker" destination="kxp-5u-akq" id="sdi-EV-5pe"/>
-                        <segue destination="dmX-K3-7Wb" kind="unwind" identifier="afterEdit" unwindAction="unwindWithSegue:" id="5vx-zE-ql4"/>
+                        <segue destination="dmX-K3-7Wb" kind="unwind" identifier="afterEdit" unwindAction="unwindToProfileWithSegue:" id="ti7-hU-bQm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7v-d2-AuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1057,7 +1056,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sxo-mz-91G"/>
-        <segue reference="Y0k-sb-hJv"/>
         <segue reference="bPt-Id-iAX"/>
     </inferredMetricsTieBreakers>
 </document>

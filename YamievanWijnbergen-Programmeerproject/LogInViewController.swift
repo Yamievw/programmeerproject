@@ -18,6 +18,8 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.isHidden = false
 
         // Keep user logged in when closing app.
         Auth.auth().addStateDidChangeListener() { auth, user in

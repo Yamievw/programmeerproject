@@ -193,13 +193,13 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "sendMessage") {
-            viewWillDisappear(true)
-                   }
-        if (segue.identifier == "chatInfo") {
-            viewWillDisappear(false)
-        }
-    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "sendMessage") {
+//            viewWillDisappear(true)
+//                   }
+//        if (segue.identifier == "chatInfo") {
+//            viewWillDisappear(false)
+//        }
+//    }
 }

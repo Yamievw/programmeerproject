@@ -70,8 +70,6 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             currentLocation = locationManager.location
-            print(currentLocation.coordinate.latitude)
-            print(currentLocation.coordinate.longitude)
         }
         else {
             locationManager.requestWhenInUseAuthorization()
