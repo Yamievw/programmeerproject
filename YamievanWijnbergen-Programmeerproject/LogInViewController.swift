@@ -30,21 +30,55 @@ class LogInViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        super.didReceiveMemoryWarning()    }
     
     // Let a user login with their email and password
     @IBAction func loginDidTouch(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
-            if error == nil {
-                if Auth.auth().currentUser != nil {
-                    self.performSegue(withIdentifier: "loginToMap", sender: self)
-                }
-            } else {
-                 self.loginFail()
+            if error != nil {
+                self.loginFail()
             }
         }
+    }
+    
+    
+    @IBAction func forgotPasswordButton(_ sender: Any) {
+        resetPassword()
+    }
+
+    
+    func resetPassword() {
+
+        Auth.auth().sendPasswordReset(withEmail: emailField!.text!, completion: { (error) in
+        
+            OperationQueue.main.addOperation {
+                
+                if error != nil {
+                    
+                    // Error - Unidentified Email
+                    //SVProgressHUD.dismiss()
+                    let alertController = UIAlertController(title: "Error", message: "Please enter a valid emailadress.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    // Success - Sends recovery email
+                    
+                    //SVProgressHUD.dismiss()
+                    
+                    let alertController = UIAlertController(title: "Email Sent", message: "An email has been sent. Please, check your email now.", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
+            }})
     }
     
     // Alert to let user know login failed.
