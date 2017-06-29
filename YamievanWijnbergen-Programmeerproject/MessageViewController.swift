@@ -49,7 +49,7 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
     // Make sure user can go back to previous viewcontroller.
     override func viewWillDisappear(_ animated: Bool) {
         
-        var counter = navigationController?.viewControllers.count
+        let counter = navigationController?.viewControllers.count
         
         if counter == 3 {
             navigationController?.navigationBar.isHidden = true
@@ -65,12 +65,12 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     
-    // Start Editing The Text Field
+    // Start editing the textfield.
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -210, up: true)
     }
     
-    // Finish Editing The Text Field
+    // Finish editing the textfield.
     func textFieldDidEndEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -210, up: false)
     }

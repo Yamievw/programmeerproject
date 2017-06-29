@@ -12,5 +12,4 @@ class MessageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var messageText: UITextView!
     
-    
 }

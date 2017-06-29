@@ -67,7 +67,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewWillDisappear(animated)
     }
 
-    
     // Make keyboard dissapear after hitting Return button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
