@@ -3,7 +3,7 @@ Door: Yamie van Wijnbergen
 
 ## App beschrijving
 Een belangrijke regel bij het duiken is dat je beter nooit alleen kan duiken. Deze app is hier de oplossing voor. Deze app is een oplossing voor mensen die duiken, die geen andere duikers kennen maar toch niet het risico willen nemen om alleen te duiken. Het doel van DiveBuddy is om duikers met elkaar in contact te brengen, zodat ze op die manier een buddy kunnen vinden om mee te duiken. De gebruiker kan andere duikers vinden op een gewenste locatie en diegene meteen een berichtje sturen om een afspraak te maken.
-![screenshot](doc/appFinished.png "Screenshot") 
+![screenshot](doc/finished.png "Screenshot") 
 
 
 ## Technical design
