@@ -17,7 +17,7 @@ Deze klasse bevat de titel en subtitel voor een Annotation View op een bepaalde 
 ![screenshot](doc/annotation.png "Screenshot")
 
 #### 1.3 Message
-Deze klasse bevat alle onderdelen nodig om een bericht te identificeren van wie het is, naar wie het is, wanneer het verzonden is en het berichtje zelf.
+Deze klasse bevat alle onderdelen nodig om een bericht te identificeren van wie het is, naar wie het is verstuurd, op welk tijdstip het verzonden is en het berichtje zelf.
 ![screenshot](doc/message.png "Screenshot")
 
 ### 2.Controllers
