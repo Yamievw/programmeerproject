@@ -1,7 +1,7 @@
 # Divers App
-![screenshot](doc/LogoDiveBuddy.png "Screenshot") 
-Gemaakt door: Yamie van Wijnbergen
-Copyright (c) 2017 YamievanWijnbergen
+![screenshot](doc/LogoDiveBuddy.png "Screenshot") <br /> 
+Gemaakt door: Yamie van Wijnbergen<br /> 
+Copyright (c) 2017 YamievanWijnbergen<br /> 
 [![BCH compliance](https://bettercodehub.com/edge/badge/Yamievw/programmeerproject?branch=master)](https://bettercodehub.com/)
 
 ### Het doel: 
