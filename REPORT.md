@@ -54,6 +54,8 @@ Ik heb technisch gezien ervoor gekozen om meerdere klasses aan te maken. Deze ke
 
 In plaats van losse knoppen heb ik ook gekozen voor een tabbarcontroller voor een mooiere user interface. Deze keuze heb ik gemaakt omdat ik het er voorheen te onoverzichtelijk eruit vond zien en door de tabbarcontroller ziet de gebruiker duidelijk wat de hoofdschermen zijn en waar hij vanuit daar naartoe kan navigeren.
 
+Als laatst heb ik er ook voor gekozen om een "forgot password" functie te maken voor gebruikersvriendelijkheid.
+
 
 
 
