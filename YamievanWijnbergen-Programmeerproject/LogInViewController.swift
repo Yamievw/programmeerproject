@@ -27,6 +27,16 @@ class LogInViewController: UIViewController {
                 self.performSegue(withIdentifier: "stayLoggedIn", sender: nil)
             }
         }
+        
+        // Dismiss keyboard when tapping on view.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    // Dismiss keyboard when user taps the view.
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {

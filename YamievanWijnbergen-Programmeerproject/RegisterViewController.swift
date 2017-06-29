@@ -54,6 +54,16 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
         self.amountdivesField.delegate = self;
         self.emailField.delegate = self;
         self.passwordField.delegate = self;
+        
+        // Dismiss keyboard when tapping on view.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    // Dismiss keyboard when user taps the view.
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
