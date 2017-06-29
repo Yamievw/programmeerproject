@@ -34,6 +34,8 @@ class RegisterViewController: UIViewController, CLLocationManagerDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = false
+        
         // Get Location.
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

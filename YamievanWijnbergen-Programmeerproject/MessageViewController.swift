@@ -35,6 +35,15 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
 
         navigationController?.navigationBar.isHidden = false
         
+        // Dismiss keyboard when tapping on view.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    // Dismiss keyboard when user taps the view.
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // Make sure user can go back to previous viewcontroller.
@@ -174,10 +183,6 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        view.endEditing(true)
-    }
-    
     // Make cell height dynamic based on height textview.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var height: CGFloat = 60
@@ -193,13 +198,4 @@ class MessageViewController: UIViewController, UITextFieldDelegate, UICollection
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
     }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "sendMessage") {
-//            viewWillDisappear(true)
-//                   }
-//        if (segue.identifier == "chatInfo") {
-//            viewWillDisappear(false)
-//        }
-//    }
 }

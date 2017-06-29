@@ -45,11 +45,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.amountdivesField.delegate = self;
         
         getUserDetails()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Dismiss keyboard.
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // Make sure user can go back to previous viewcontroller.
