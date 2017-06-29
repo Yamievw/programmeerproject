@@ -17,4 +17,4 @@ Daarnaast zal er ook nog een klasse zijn waarin alle gebruikers in voorkomen.
 Een uitgebreidere sketch is onderaan te vinden. Hierin is er te zien hoe ik denk het er uiteindelijk uit te willen laten zien. En hoe elke knop navigeert naar een volgende viewcontroller.
 
 ## Sketch
-![screenshot](screenshot2.png "Screenshot")
+![screenshot](doc/screenshot2.png "Screenshot")

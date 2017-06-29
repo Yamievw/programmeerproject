@@ -29,6 +29,6 @@ Er bestaat nog geen soortgelijke duikapp. Er bestaan apps waarmee de gebruiker h
 De app moet sowieso gebruikers kunnen opzoeken en de optie hebben om diegene een bericht te sturen. Optioneel kan zijn om ook nog reviews toe te voegen hoe het was om met diegene te duiken. Of om groepchats te maken als je met meerdere mensen wilt duiken. Misschien ook nog de optie bij het profiel om te laten zien op welke plekken de gebruiker al allemaal heeft gedoken.
 
 ### Sketch
-![screenshot](proposalsketch.jpg "Screenshot")
+![screenshot](doc/proposalsketch.jpg "Screenshot")
 
 
