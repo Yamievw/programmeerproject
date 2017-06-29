@@ -64,9 +64,6 @@ class LogInViewController: UIViewController {
             OperationQueue.main.addOperation {
                 
                 if error != nil {
-                    
-                    // Error - Unidentified Email
-                    //SVProgressHUD.dismiss()
                     let alertController = UIAlertController(title: "Error", message: "Please enter a valid emailadress.", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                         
@@ -75,11 +72,7 @@ class LogInViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                     
                 } else {
-                    
-                    // Success - Sends recovery email
-                    
-                    //SVProgressHUD.dismiss()
-                    
+                    // Send recovery email.
                     let alertController = UIAlertController(title: "Email Sent", message: "An email has been sent. Please, check your email now.", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                         
@@ -88,7 +81,8 @@ class LogInViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
                 
-            }})
+            }
+        })
     }
     
     // Alert to let user know login failed.
