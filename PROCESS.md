@@ -66,7 +66,7 @@ Het deleten van chats werkt. Ik heb gefixed dat de gebruiker geen lege berichtje
 Ik heb vandaag eraan gewerkt dat de app op alle schermformaten werkt. Het aanpassen van je profiel werkt ook. Het is alleen nog niet gelukt om meteen een segue te creeeren die teruggaat naar je profiel met meteen de aanpassingen erin (je moet nu eerst uitloggen en inloggen om de wijzigingen te zien). De navigatie-bug is ook gefixed.
 
 ### 28 juni
-Vandaag ben ik begonnen aan m'n report. Het nagiveren vanuit logout ging nog niet echt goed. Dit heb ik vandaag gefixed.
+Vandaag ben ik begonnen aan m'n report. Het nagiveren vanuit logout ging nog niet echt goed. Dit heb ik vandaag gefixed. Navigeren na het editen naar je aangepast profiel werkt nu ook!
 
 ### 29 juni
 Als laatste dagje heb ik de laatste dingetjes werkend en netjes gemaakt. Ik heb weer ervoor gezorgd dat de app op meerdere schermformaten werkt. En verder GitHub helemaal ordenen en het Report afmaken.
