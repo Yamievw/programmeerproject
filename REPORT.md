@@ -5,7 +5,6 @@ Door: Yamie van Wijnbergen
 Een belangrijke regel bij het duiken is dat je beter nooit alleen kan duiken. Deze app is hier de oplossing voor. Deze app is een oplossing voor mensen die duiken, die geen andere duikers kennen maar toch niet het risico willen nemen om alleen te duiken. Het doel van DiveBuddy is om duikers met elkaar in contact te brengen, zodat ze op die manier een buddy kunnen vinden om mee te duiken. De gebruiker kan andere duikers vinden op een gewenste locatie en diegene meteen een berichtje sturen om een afspraak te maken.
 ![screenshot](doc/finished.png "Screenshot") 
 
-
 ## Technical design
 ### 1.Classes
 #### 1.1 User
@@ -52,9 +51,7 @@ Ik had ook moeite met de chatfunctie. En dan met name het laden van berichten en
 
 Ik heb technisch gezien ervoor gekozen om meerdere klasses aan te maken. Deze keuze heb ik gemaakt omdat ik deze meerdere malen gebruik, en ook klasses aan elkaar koppel. Op deze manier bleef het overzichtelijk.
 
-In plaats van losse knoppen heb ik ook gekozen voor een tabbarcontroller voor een mooiere user interface. Deze keuze heb ik gemaakt omdat ik het er voorheen te onoverzichtelijk eruit vond zien en door de tabbarcontroller ziet de gebruiker duidelijk wat de hoofdschermen zijn en waar hij vanuit daar naartoe kan navigeren.
-
-Als laatst heb ik er ook voor gekozen om een "forgot password" functie te maken voor gebruikersvriendelijkheid.
+Voor gebruiksvriendelijkheid heb ik in plaats van losse knoppen gekozen voor een tabbarcontroller voor een mooiere user interface. Deze keuze heb ik gemaakt omdat ik het er voorheen te onoverzichtelijk eruit vond zien en door de tabbarcontroller ziet de gebruiker duidelijk wat de hoofdschermen zijn en waar hij vanuit daar naartoe kan navigeren. Ook heb ik ervoor gekozen om een "forgot password" functie te maken voor gebruikersvriendelijkheid.
 
 
 
